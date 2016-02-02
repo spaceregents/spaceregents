@@ -1,0 +1,9 @@
+<svg:path id="%ID" style="fill:rgb(255,255,255)" d="M 2 0 L 0 2 L 0 0 L 2 0 z"/>
+<svg:path id="%ID" style="fill:rgb(21,6,12)" d="M 8 0 L 8 1 C 5.027 0.0551 0.7474 3.796 4 6 L 4 7 L 5 10 L 2 10 C 2.456 8.65 1.35 7.544 0 8 L 0 2 L 2 0 L 8 0 z"/>
+<svg:path id="%ID" style="fill:rgb(255,255,255)" d="M 10 0 L 10 2 L 8 1 L 8 0 L 10 0 z"/>
+<svg:path id="%ID" style="fill:rgb(132,58,49)" d="M 8 1 L 10 2 L 10 4 L 4 6 C 0.7474 3.796 5.027 0.0551 8 1 z"/>
+<svg:path id="%ID" style="fill:rgb(219,114,73)" d="M 10 4 L 10 7 L 9 8 L 4 7 L 4 6 L 10 4 z"/>
+<svg:path id="%ID" style="fill:rgb(79,38,36)" d="M 9 8 L 8 10 L 5 10 L 4 7 L 9 8 z"/>
+<svg:path id="%ID" style="fill:rgb(0,0,0)" d="M 10 7 L 10 8 L 9 8 L 10 7 z"/>
+<svg:path id="%ID" style="fill:rgb(255,255,255)" d="M 2 10 L 0 10 L 0 8 C 1.35 7.544 2.456 8.65 2 10 z"/>
+<svg:path id="%ID" style="fill:rgb(255,255,255)" d="M 10 8 L 10 10 L 8 10 L 9 8 L 10 8 z"/>

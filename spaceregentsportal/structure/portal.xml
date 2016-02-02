@@ -1,0 +1,9 @@
+<portal>
+  <page name="index" title="News"/>
+  <page name="forum" title="Forum"/>
+  <page name="register" title="Register"/>
+  <page name="team" title="Team"/>
+  <page name="screenshots" title="Screenshots"/>
+  <page name="about" title="About"/>
+  <page name="concept_arts" title="Concept Arts"/>
+</portal>

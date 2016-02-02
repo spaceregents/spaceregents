@@ -1,0 +1,107 @@
+.colorOwn		{fill:lime;}
+.colorAllied		{fill:yellow;}
+.colorFriend		{fill:orange;}
+.colorEnemy		{fill:red;}
+.colorNeutral		{fill:blue;}
+.colorNone		{fill:lightgrey;}
+
+.colorOwnOutline	{stroke:lime;fill:none;}
+.colorAlliedOutline	{stroke:yellow;fill:none;}
+.colorFriendOutline	{stroke:orange;fill:none;}
+.colorEnemyOutline	{stroke:red;fill:none;}
+.colorNeutralOutline	{stroke:blue;fill:none;}
+.colorNoneOutline	{stroke:gray;fill:none;}
+
+.colorOwnOutlineDisabled	{stroke:black;fill:#005E20;stroke-width:1pt;}
+.colorAlliedOutlineDisabled	{stroke:black;fill:#ABA000;stroke-width:1pt;}
+.colorFriendOutlineDisabled	{stroke:black;fill:#A36209;stroke-width:1pt;}
+.colorEnemyOutlineDisabled	{stroke:black;fill:#790000;stroke-width:1pt;}
+.colorNeutralOutlineDisabled	{stroke:black;fill:#1B1464;stroke-width:1pt;}
+.colorNoneOutlineGray		{stroke:gray;fill:black;}
+
+.colorOwnDiscreet	{fill:green;}
+.colorAlliedDiscreet	{fill:yellow;}
+.colorFriendDiscreet	{fill:orange;}
+.colorEnemyDiscreet	{fill:red;}
+.colorNeutralDiscreet	{fill:blue;}
+.constellationGrid	{fill:none;stroke:blue;stroke-width:0.5px;stroke-opacity:0.5;}
+.constellationMMapGrid	{fill:none;stroke:#848FC7;stroke-width:5px;stroke-opacity:1;}
+
+.commandButtonManageBg	{fill:darkblue;stroke:none;}
+.commandButtonShape	{fill:lightblue;stroke:white;stroke-width:0.5px;}
+
+.mapGUI			{fill:#00579F;stroke:#00A2FF;stroke-width:1px;fill-opacity:0.8;}
+.mapGUI2		{fill:#00579F;stroke:#00A2FF;stroke-width:1px;}
+.mapGUI3		{fill:#00377F;stroke:#0082DF;stroke-width:1px;}
+.mapGUIHover		{fill:yellow;stroke:#00A2FF;stroke-width:1px;fill-opacity:1;}
+.mapGUIItemSelected	{fill:#00579F;stroke:yellow;stroke-width:3px;}
+.mapGUIBigTopic		{fill:yellow;stroke:none;font-size:9pt;font-family:Arial Unicode MS;text-align:center;font-weight:bold;text-anchor:middle;}
+.mapGUITopic		{fill:yellow;stroke:none;font-size:8pt;font-family:Arial Unicode MS;text-align:center;text-anchor:middle;}
+.mapGUIButton		{fill:url(#button_gradient_normal);stroke:#0066CC;}
+.mapGUIButtonActive	{fill:url(#button_gradient_activated);stroke:#BBE5E9;}
+.mapGUIItemTopic	{fill:yellow;stroke:none;font-size:10pt;font-family:Arial Unicode MS;}
+.mapGUIButtonFace	{fill:yellow;stroke:none;}
+.buttonFill		{fill:yellow;stroke:none;}
+.buttonHighlight1	{fill:#00A2FF;}
+.mapDialogTextSmall2 	{fill:white;stroke:none;font-family:Arial Unicode MS;font-decoration:none;font-size:7pt;font-weight:thin;text-align:center;text-anchor:middle;}
+.fleetItemETA 		{fill:lime;stroke:none;font-family:Arial Unicode MS;font-decoration:none;font-size:8pt;font-weight:thin;text-align:right;text-anchor:end;}
+.okButton		{fill:lime;stroke:white;stroke-width:0.5px;}
+
+.mapGUIItemTopic	{fill:white;stroke:none;font-size:11pt;}
+.mapGUIItemText		{fill:white;stroke:none;font-size:10pt;}
+.mapGUIItemTextRect	{fill:#0D0723;stroke:black;}
+.mapGUIItemFooterIcon	{fill:#9EDAE2;stroke:none;}
+.mapGUIItemFooterText	{fill:white;stroke:none;font-size:8pt;}
+.mapGUItemSymbolCircle  {fill:#00579F;stroke:#00A2FF;stroke-width:1px;}
+
+.mapGUIWindowBgRect	{fill:#00377F;stroke:#0082DF;stroke-width:1px;}
+.mapGUIWindowTitleRect	{fill:#00579F;stroke:#00A2FF;stroke-width:1px;}
+.mapGUIWindowTitle	{fill:yellow;stroke:none;font-size:8pt;font-family:Arial Unicode MS;text-align:left}
+.mapGUIWindowTextBoxRect {fill:#00579F;stroke:#00A2FF;stroke-width:1px;}
+
+.targeted		{fill:none;stroke:white;stroke-width:2px;}
+
+rect.mapGUISelected	{fill:none;stroke:#00A2FF;stroke-width:1px;}
+
+.none			{}
+
+circle.planetsNone	{fill:none;stroke:gray;}
+circle.planetsSame	{fill:none;stroke:lime;}
+circle.planetsAllie	{fill:none;stroke:yellow;}
+circle.planetsEnemy	{fill:none;stroke:red;}
+circle.planetsFriend	{fill:none;stroke:orange;}
+circle.planetsNeutral	{fill:none;stroke:blue;}
+circle.pshield {fill:blue;fill-opacity:0.5;stroke:none;pointer-events:none;}
+
+g.displayMarker		{stroke:none;fill:#82D0E3;}
+g.fleetsOwn		{fill:lime;stroke:black;stroke-width:0.25pt;}
+g.fleetsEnemy		{fill:red;stroke:black;stroke-width:0.25pt;}
+g.fleetsAllied		{fill:yellow;stroke:black;stroke-width:0.25pt;}
+g.fleetsFriend		{fill:orange;stroke:black;stroke-width:0.25pt;}
+g.fleetsNeutral		{fill:blue;stroke:black;stroke-width:0.25pt;}
+g.minimapScancircles 	{stroke:none;fill:#5050C5;}
+g.planetsOrbits		{fill:none;stroke:#00BBDF;stroke-width:0.5px;opacity:0.25;}
+
+.fleetsRoutes		{stroke-dasharray:2;fill:none;stroke:lime;stroke-width:1;opacity:1;pointer-events:none;}
+.alliedRoute		{stroke-dasharray:2;fill:none;stroke:yellow;stroke-width:1;opacity:1;pointer-events:none;}
+.fleetsRoutesHighlight	{stroke-dasharray:2;fill:none;stroke:lime;stroke-width:2;pointer-events:none;}
+
+rect.minimapDefaultStar	{fill:lightgrey;stroke:lightgrey;fill-opacity:0.2;}
+rect.minimapPositionRect {fill:none;stroke:lime;stroke-width:20px;}
+rect.disabler		{fill:black;fill-opacity:0.5;}
+
+text.mapGUIText		{fill:white;stroke:none;text-anchor:middle;letter-spacing:1pt;font-family:lucida console;font-decoration:none;font-size:16}
+flowPara.mapGUIText	{fill:white;stroke:none;text-anchor:middle;letter-spacing:1pt;font-family:lucida console;font-decoration:none;font-size:16}
+.mapDialogTopic		{fill:white;stroke:none;text-anchor:middle;font-family:Arial Unicode MS;font-size:8pt;}
+.mapDialogText1		{fill:white;stroke:none;text-anchor:middle;font-family:Arial Unicode MS;font-decoration:none;font-size:8pt;font-weight:thin;}
+.mapDialogText2		{fill:white;stroke:none;font-family:Arial Unicode MS;font-decoration:none;font-size:8pt;font-weight:thin;}
+.mapDialogText2edit	{fill:white;stroke:yellow;font-family:Arial Unicode MS;font-decoration:none;font-size:8pt;font-weight:bold;stroke-width:0.1}
+.mapDialogText3		{fill:white;stroke:none;font-family:Arial Unicode MS;font-decoration:none;font-size:8pt;font-weight:thin;letter-spacing:1pt;}
+.mapDialogTextSmall	{fill:#00A2FF;stroke:none;font-family:Arial Unicode MS;font-decoration:none;font-size:6pt;font-weight:thin;}
+text.constellationText	{fill:white;stroke:none;fill-opacity:0.5;font-size:6pt;font-family:Arial Unicode MS;}
+
+.progressBar		{fill:#64A3C9;;stroke:none;}
+.progressBarBg		{fill:#00276F;stroke:#6DCBFF;}
+
+.itemDarkBg		{fill:#00151F;stroke:none;}
+.itemBrightBg		{fill:#20555F;stroke:none;}

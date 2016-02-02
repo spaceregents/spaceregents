@@ -1,0 +1,2005 @@
+-- MySQL dump 10.2
+--
+-- Host: localhost    Database: spaceregents
+-- ------------------------------------------------------
+-- Server version	4.1.1-alpha-log
+
+/*!40101 SET NAMES latin1*/;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE=NO_AUTO_VALUE_ON_ZERO */;
+
+--
+-- Table structure for table `activationcodes`
+--
+
+DROP TABLE IF EXISTS activationcodes;
+CREATE TABLE activationcodes (
+  code varchar(255) default NULL,
+  uid int(11) default NULL,
+  date timestamp NOT NULL
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `activationcodes`
+--
+
+
+/*!40000 ALTER TABLE activationcodes DISABLE KEYS */;
+LOCK TABLES activationcodes WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE activationcodes ENABLE KEYS */;
+
+--
+-- Table structure for table `admirals`
+--
+
+DROP TABLE IF EXISTS admirals;
+CREATE TABLE admirals (
+  value int(11) default NULL,
+  name varchar(255) default NULL,
+  fid int(11) default NULL,
+  id int(11) NOT NULL auto_increment,
+  uid int(11) default NULL,
+  pic varchar(255) default NULL,
+  agility int(11) default '0',
+  initiative int(11) default '0',
+  sensor int(11) default '0',
+  weaponskill int(11) default '0',
+  uniform int(11) default NULL,
+  implantat int(11) default NULL,
+  belt int(11) default NULL,
+  used_xp int(11) default NULL,
+  used_upgrades int(11) NOT NULL default '0',
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admirals`
+--
+
+
+/*!40000 ALTER TABLE admirals DISABLE KEYS */;
+LOCK TABLES admirals WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE admirals ENABLE KEYS */;
+
+--
+-- Table structure for table `ads`
+--
+
+DROP TABLE IF EXISTS ads;
+CREATE TABLE ads (
+  image varchar(255) default NULL,
+  link varchar(255) default NULL,
+  hits int(11) default '0',
+  id int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ads`
+--
+
+
+/*!40000 ALTER TABLE ads DISABLE KEYS */;
+LOCK TABLES ads WRITE;
+INSERT INTO ads VALUES ('http://www.spaceregents.de/images/add_banner.jpg','http://www.spaceregents.de',0,1);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE ads ENABLE KEYS */;
+
+--
+-- Table structure for table `alliance`
+--
+
+DROP TABLE IF EXISTS alliance;
+CREATE TABLE alliance (
+  name varchar(255) default NULL,
+  leader int(11) NOT NULL default '0',
+  id int(11) NOT NULL auto_increment,
+  last_vote datetime default NULL,
+  vote_interval tinyint(4) default NULL,
+  color varchar(7) default '#FF00FF',
+  picture varchar(255) default NULL,
+  info blob,
+  url varchar(255) default NULL,
+  milminister int(11) NOT NULL default '0',
+  devminister int(11) NOT NULL default '0',
+  forminister int(11) NOT NULL default '0',
+  symbol varchar(255) default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `alliance`
+--
+
+
+/*!40000 ALTER TABLE alliance DISABLE KEYS */;
+LOCK TABLES alliance WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE alliance ENABLE KEYS */;
+
+--
+-- Table structure for table `alliance_lock`
+--
+
+DROP TABLE IF EXISTS alliance_lock;
+CREATE TABLE alliance_lock (
+  uid int(11) NOT NULL default '0',
+  lock_date timestamp NOT NULL,
+  PRIMARY KEY  (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `alliance_lock`
+--
+
+
+/*!40000 ALTER TABLE alliance_lock DISABLE KEYS */;
+LOCK TABLES alliance_lock WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE alliance_lock ENABLE KEYS */;
+
+--
+-- Table structure for table `battlereports`
+--
+
+DROP TABLE IF EXISTS battlereports;
+CREATE TABLE battlereports (
+  uid int(11) default NULL,
+  pid int(11) default NULL,
+  sid int(11) default NULL,
+  report text,
+  time timestamp NOT NULL,
+  id int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `battlereports`
+--
+
+
+/*!40000 ALTER TABLE battlereports DISABLE KEYS */;
+LOCK TABLES battlereports WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE battlereports ENABLE KEYS */;
+
+--
+-- Table structure for table `buddies`
+--
+
+DROP TABLE IF EXISTS buddies;
+CREATE TABLE buddies (
+  uid int(11) NOT NULL default '0',
+  fuid int(11) NOT NULL default '0',
+  KEY uid (uid),
+  KEY fuid (fuid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `buddies`
+--
+
+
+/*!40000 ALTER TABLE buddies DISABLE KEYS */;
+LOCK TABLES buddies WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE buddies ENABLE KEYS */;
+
+--
+-- Table structure for table `buddy_invite`
+--
+
+DROP TABLE IF EXISTS buddy_invite;
+CREATE TABLE buddy_invite (
+  uid int(11) NOT NULL default '0',
+  fuid int(11) NOT NULL default '0',
+  KEY uid (uid,fuid),
+  KEY fuid (fuid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `buddy_invite`
+--
+
+
+/*!40000 ALTER TABLE buddy_invite DISABLE KEYS */;
+LOCK TABLES buddy_invite WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE buddy_invite ENABLE KEYS */;
+
+--
+-- Table structure for table `buddy_msg`
+--
+
+DROP TABLE IF EXISTS buddy_msg;
+CREATE TABLE buddy_msg (
+  uid int(11) NOT NULL default '0',
+  fuid int(11) NOT NULL default '0',
+  message varchar(255) default NULL,
+  time timestamp NOT NULL,
+  KEY uid (uid),
+  KEY fuid (fuid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `buddy_msg`
+--
+
+
+/*!40000 ALTER TABLE buddy_msg DISABLE KEYS */;
+LOCK TABLES buddy_msg WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE buddy_msg ENABLE KEYS */;
+
+--
+-- Table structure for table `bughunters`
+--
+
+DROP TABLE IF EXISTS bughunters;
+CREATE TABLE bughunters (
+  id int(11) NOT NULL auto_increment,
+  uid int(11) NOT NULL default '0',
+  developer tinyint(1) default '0',
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bughunters`
+--
+
+
+/*!40000 ALTER TABLE bughunters DISABLE KEYS */;
+LOCK TABLES bughunters WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE bughunters ENABLE KEYS */;
+
+--
+-- Table structure for table `building_upgrades`
+--
+
+DROP TABLE IF EXISTS building_upgrades;
+CREATE TABLE building_upgrades (
+  prod_id int(11) NOT NULL default '0',
+  level int(1) NOT NULL default '2',
+  metal int(11) default '0',
+  energy int(11) default '0',
+  mopgas int(11) default '0',
+  erkunum int(11) default '0',
+  gortium int(11) default '0',
+  susebloom int(11) default '0'
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `building_upgrades`
+--
+
+
+/*!40000 ALTER TABLE building_upgrades DISABLE KEYS */;
+LOCK TABLES building_upgrades WRITE;
+INSERT INTO building_upgrades VALUES (8,2,5000,5000,1000,500,0,0),(8,3,10000,10000,5000,4000,1000,0);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE building_upgrades ENABLE KEYS */;
+
+--
+-- Table structure for table `constellationnames`
+--
+
+DROP TABLE IF EXISTS constellationnames;
+CREATE TABLE constellationnames (
+  name varchar(255) NOT NULL default '',
+  id int(11) NOT NULL auto_increment,
+  genetiv varchar(255) NOT NULL default '',
+  PRIMARY KEY  (id),
+  KEY genetiv (genetiv),
+  KEY name (name)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `constellationnames`
+--
+
+
+/*!40000 ALTER TABLE constellationnames DISABLE KEYS */;
+LOCK TABLES constellationnames WRITE;
+INSERT INTO constellationnames VALUES ('Canis Major',1,'Canis Majoris'),('Carina',2,'Carinae'),('Rigel Centaurus',3,'Rigel Centauri'),('Lyra',4,'Lyrae'),('Auriga',5,'Aurigae'),('Bootor',6,'Bootis'),('Orion',7,'Orionis'),('Canis Minor',8,'Canis Minoris'),('Eridanus',9,'Eridani'),('Aquila',10,'Aquilae'),('Centaurus',11,'Centauri'),('Scorpius',12,'Scorpii'),('Taurus',13,'Tauri'),('Virgo',14,'Virginis'),('Gemini',15,'Geminorium'),('Cygnus',16,'Cygni'),('Piscis Austrinus',17,'Piscis Austrini'),('Leo',18,'Leonis'),('Crucis',19,'Crucis'),('Ursa Major',20,'Ursa Majoris'),('Perseus',21,'Persei'),('Velorum',22,'Velorum'),('Kaus Sagittarus',23,'Kaus Sagittari'),('Cetus',24,'Ceti'),('Andromeda',25,'Andromedae'),('Ras Ophiuchus',26,'Ras Ophiuchi'),('Sagittarus',27,'Sagittari'),('Pavor',28,'Pavonis'),('Ursa Minor',29,'Ursa Minoris'),('Al Na\'Gru',30,'Al Na\'Gruis'),('Hydra',31,'Hydrae'),('Aries',32,'Arietis'),('Umus',33,'Umi'),('Gruis',34,'Gruis'),('Corona Borealis',35,'Coronae Borealis'),('Puppis',36,'Puppis'),('Cassiopeia',37,'Cassiopeiae'),('Phoenic',38,'Phoenicis'),('Draco',39,'Draconis'),('Pegasus',40,'Pegasi'),('Cepheus',41,'Cephei'),('Al Leo',42,'Al Leonis'),('Ophiuchus',43,'Ophiuchi'),('Zubenel Libra',44,'Zubenel Librae'),('Lepo',45,'Leporis'),('Lupus',46,'Lupi'),('Columba',47,'Columbae'),('Corvus',48,'Corvi'),('Serpentis',49,'Serpentis'),('Hercules',50,'Herculis'),('Ara',51,'Arae'),('Cor Canum Venaticorum',52,'Cor Canum Venaticorum'),('Zuben El Libra',53,'Zuben El Librae'),('Musca',54,'Muscae'),('Kelbal Ophiuchus',55,'Kelbal Ophiuchi'),('Tucana',56,'Tucanae'),('Na\'iral Orion',57,'Na\'iral Orionis'),('Deneb Capricornus',58,'Deneb Capricorni'),('Ras Hercules',59,'Ras Herculis'),('Yed Ophiuchus',60,'Yed Ophiuchi'),('Talitha Ursa Major',61,'Talitha Ursa Majoris'),('Triangulus',62,'Trianguli'),('Al Scorpius',63,'Al Scorpii'),('Aquarius',64,'Aquarii'),('Al Sagittarus',65,'Al Sagittari'),('Kaou Draco',66,'Kaou Draconis'),('Al Gruis',67,'Al Gruis'),('Al Indus',68,'Al Indi'),('Tania Ursa Major',69,'Tania Ursa Majoris'),('Capricornus',70,'Capricorni'),('Pictoris',71,'Pictoris'),('Lynx',72,'Lynx'),('Circinus',73,'Circini'),('Reticulus',74,'Reticuli'),('Er Cepheus',75,'Er Cephei'),('Libra',76,'Librae'),('Doradus',77,'Doradus'),('Al Aquila',78,'Al Aquilae'),('Volantis',79,'Volantis'),('Pyxidis',80,'Pyxidis'),('Tseen Velorum',81,'Tseen Velorum'),('Delphinus',82,'Delphini'),('Piscium',83,'Piscium'),('Alula Ursa Major',84,'Alula Ursa Majoris'),('Indus',85,'Indi'),('Octan',86,'Octanis'),('Sagitta',87,'Sagittae'),('Telescopius',88,'Telescopii'),('Electra',89,'Electra'),('Atlas',90,'Atlas'),('Al Capricornus',91,'Al Capricorni'),('Horologius',92,'Horologii'),('Crater',93,'Crateris'),('Cancrus',94,'Cancri'),('Apodis',95,'Apodis'),('Lacerta',96,'Lacertae'),('Primus Taurus',97,'Primus Tauri'),('Praecipula',98,'Praecipula'),('Alcor',99,'Alcor'),('Maia',100,'Maia'),('Equuleus',101,'Equulei'),('Monocerotis',102,'Monocerotis'),('Norma',103,'Normae'),('Chamaeleon',104,'Chamaeleontis'),('Camelopardalis',105,'Camelopardalis'),('Asellus Cancrus',106,'Asellus Cancri'),('Kaitain',107,'Kaitain'),('Merope',108,'Merope'),('Canum Venaticorum',109,'Canum Venaticorum'),('Coma Berenices',110,'Comae Berenices'),('Taygeta',111,'Taygeta'),('Sculptor',112,'Sculptoris'),('Leo Minor',113,'Leonis Minoris'),('Antlia',114,'Antliae'),('Caelus',115,'Caeli'),('Minharal Hydra',116,'Minharal Hydrae'),('Fornacus',117,'Fornacis'),('Vulpecula',118,'Vulpeculae'),('Scutus',119,'Scuti'),('Microscopius',120,'Microscopii'),('Corona Australis',121,'Coronae Australis'),('Mensa',122,'Mensae'),('Pleione',123,'Pleione'),('Sextant',124,'Sextantis');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE constellationnames ENABLE KEYS */;
+
+--
+-- Table structure for table `constellations`
+--
+
+DROP TABLE IF EXISTS constellations;
+CREATE TABLE constellations (
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `constellations`
+--
+
+
+/*!40000 ALTER TABLE constellations DISABLE KEYS */;
+LOCK TABLES constellations WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE constellations ENABLE KEYS */;
+
+--
+-- Table structure for table `constructions`
+--
+
+DROP TABLE IF EXISTS constructions;
+CREATE TABLE constructions (
+  pid int(11) NOT NULL default '0',
+  prod_id int(11) NOT NULL default '0',
+  type tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (pid,prod_id),
+  KEY type (type)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `constructions`
+--
+
+
+/*!40000 ALTER TABLE constructions DISABLE KEYS */;
+LOCK TABLES constructions WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE constructions ENABLE KEYS */;
+
+--
+-- Table structure for table `covertops`
+--
+
+DROP TABLE IF EXISTS covertops;
+CREATE TABLE covertops (
+  count int(11) default NULL,
+  uid int(11) default NULL,
+  time int(11) default NULL,
+  target int(11) default NULL,
+  id int(11) NOT NULL auto_increment,
+  cid int(11) default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `covertops`
+--
+
+
+/*!40000 ALTER TABLE covertops DISABLE KEYS */;
+LOCK TABLES covertops WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE covertops ENABLE KEYS */;
+
+--
+-- Table structure for table `covertopsmissions`
+--
+
+DROP TABLE IF EXISTS covertopsmissions;
+CREATE TABLE covertopsmissions (
+  descr blob,
+  count int(11) default NULL,
+  metal int(11) default NULL,
+  energy int(11) default NULL,
+  mopgas int(11) default NULL,
+  erkunum int(11) default NULL,
+  gortium int(11) default NULL,
+  susebloom int(11) default NULL,
+  depend int(11) default NULL,
+  resspend char(1) default NULL,
+  targettype char(1) default NULL,
+  missiontype char(1) default NULL,
+  techdepend int(11) default NULL,
+  id int(11) NOT NULL auto_increment,
+  time int(11) default NULL,
+  chance int(11) NOT NULL default '0',
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `covertopsmissions`
+--
+
+
+/*!40000 ALTER TABLE covertopsmissions DISABLE KEYS */;
+LOCK TABLES covertopsmissions WRITE;
+INSERT INTO covertopsmissions VALUES ('Steal ships',1000,800,800,0,0,0,0,0,'O','I','S',0,1,10,15),('Sabotage Building',500,400,500,0,0,0,0,0,'O','I','B',0,2,10,20),('Sabotage Fleet',500,500,500,100,0,0,0,0,'O','I','F',0,3,10,15),('Hack News Network',500,400,1000,0,100,0,0,0,'O','I','N',0,4,5,30),('Hack Military News Network',1000,600,1400,0,100,0,0,0,'O','I','M',21,5,16,15),('Hack Intelligence News Network',2000,800,2000,0,100,0,0,0,'O','I','I',0,6,24,10),('Assassinate Admiral',1000,1500,1500,200,100,100,0,0,'O','I','A',4,7,48,10),('Place Nuklear Bomb',5000,1000,2000,0,0,1000,0,0,'O','P','C',0,8,20,15),('Deploy Chimera Virus',7000,1000,3000,0,0,0,1500,0,'O','P','V',14,9,10,10),('Sabotage Tradestation',100,0,1000,1000,0,0,0,0,'O','I','T',0,10,60,10);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE covertopsmissions ENABLE KEYS */;
+
+--
+-- Table structure for table `covertopsupgrades`
+--
+
+DROP TABLE IF EXISTS covertopsupgrades;
+CREATE TABLE covertopsupgrades (
+  prod_id int(11) default NULL,
+  value int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `covertopsupgrades`
+--
+
+
+/*!40000 ALTER TABLE covertopsupgrades DISABLE KEYS */;
+LOCK TABLES covertopsupgrades WRITE;
+INSERT INTO covertopsupgrades VALUES (56,10),(57,20),(58,35),(59,50);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE covertopsupgrades ENABLE KEYS */;
+
+--
+-- Table structure for table `diplomacy`
+--
+
+DROP TABLE IF EXISTS diplomacy;
+CREATE TABLE diplomacy (
+  alliance1 int(11) NOT NULL default '0',
+  alliance2 int(11) NOT NULL default '0',
+  status tinyint(1) default NULL,
+  PRIMARY KEY  (alliance1,alliance2)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `diplomacy`
+--
+
+
+/*!40000 ALTER TABLE diplomacy DISABLE KEYS */;
+LOCK TABLES diplomacy WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE diplomacy ENABLE KEYS */;
+
+--
+-- Table structure for table `diplomatic_change_request`
+--
+
+DROP TABLE IF EXISTS diplomatic_change_request;
+CREATE TABLE diplomatic_change_request (
+  aid1 int(11) NOT NULL default '0',
+  aid2 int(11) NOT NULL default '0',
+  status tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (aid1,aid2)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `diplomatic_change_request`
+--
+
+
+/*!40000 ALTER TABLE diplomatic_change_request DISABLE KEYS */;
+LOCK TABLES diplomatic_change_request WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE diplomatic_change_request ENABLE KEYS */;
+
+--
+-- Table structure for table `final_prod_factors`
+--
+
+DROP TABLE IF EXISTS final_prod_factors;
+CREATE TABLE final_prod_factors (
+  pid int(11) NOT NULL default '0',
+  metal int(11) NOT NULL default '1',
+  energy int(11) NOT NULL default '1',
+  mopgas int(11) NOT NULL default '1',
+  erkunum int(11) NOT NULL default '1',
+  gortium int(11) NOT NULL default '1',
+  susebloom int(11) NOT NULL default '1',
+  PRIMARY KEY  (pid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `final_prod_factors`
+--
+
+
+/*!40000 ALTER TABLE final_prod_factors DISABLE KEYS */;
+LOCK TABLES final_prod_factors WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE final_prod_factors ENABLE KEYS */;
+
+--
+-- Table structure for table `fleet`
+--
+
+DROP TABLE IF EXISTS fleet;
+CREATE TABLE fleet (
+  prod_id int(11) NOT NULL default '0',
+  count int(11) default NULL,
+  reload int(11) default '0',
+  fid int(11) NOT NULL default '0',
+  PRIMARY KEY  (prod_id,fid)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `fleet`
+--
+
+
+/*!40000 ALTER TABLE fleet DISABLE KEYS */;
+LOCK TABLES fleet WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE fleet ENABLE KEYS */;
+
+--
+-- Table structure for table `fleet_info`
+--
+
+DROP TABLE IF EXISTS fleet_info;
+CREATE TABLE fleet_info (
+  fid int(11) NOT NULL auto_increment,
+  pid int(11) NOT NULL default '0',
+  sid int(11) NOT NULL default '0',
+  tpid int(11) NOT NULL default '0',
+  tsid int(11) NOT NULL default '0',
+  mission tinyint(1) NOT NULL default '0',
+  milminister int(11) NOT NULL default '0',
+  name varchar(255) NOT NULL default 'Unnamed fleet',
+  uid int(11) NOT NULL default '0',
+  tactic int(11) NOT NULL default '0',
+  UNIQUE KEY fid (fid),
+  KEY pid (pid),
+  KEY sid (sid),
+  KEY tpid (tpid),
+  KEY tsid (tsid),
+  KEY uid (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fleet_info`
+--
+
+
+/*!40000 ALTER TABLE fleet_info DISABLE KEYS */;
+LOCK TABLES fleet_info WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE fleet_info ENABLE KEYS */;
+
+--
+-- Table structure for table `foreignforum`
+--
+
+DROP TABLE IF EXISTS foreignforum;
+CREATE TABLE foreignforum (
+  aid int(11) default '0',
+  uid int(11) default '0',
+  topic varchar(255) default NULL,
+  text blob,
+  time datetime default '0000-00-00 00:00:00',
+  id int(11) NOT NULL auto_increment,
+  fid int(11) default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `foreignforum`
+--
+
+
+/*!40000 ALTER TABLE foreignforum DISABLE KEYS */;
+LOCK TABLES foreignforum WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE foreignforum ENABLE KEYS */;
+
+--
+-- Table structure for table `forums`
+--
+
+DROP TABLE IF EXISTS forums;
+CREATE TABLE forums (
+  text blob,
+  aid int(11) default NULL,
+  uid int(11) default NULL,
+  id int(11) NOT NULL auto_increment,
+  topic varchar(255) default NULL,
+  fid int(11) default NULL,
+  time datetime default NULL,
+  lastpost datetime default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forums`
+--
+
+
+/*!40000 ALTER TABLE forums DISABLE KEYS */;
+LOCK TABLES forums WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE forums ENABLE KEYS */;
+
+--
+-- Table structure for table `greek_abc`
+--
+
+DROP TABLE IF EXISTS greek_abc;
+CREATE TABLE greek_abc (
+  name varchar(255) NOT NULL default '',
+  id int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (id),
+  KEY name (name)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `greek_abc`
+--
+
+
+/*!40000 ALTER TABLE greek_abc DISABLE KEYS */;
+LOCK TABLES greek_abc WRITE;
+INSERT INTO greek_abc VALUES ('alpha',1),('beta',2),('gamma',3),('delta',4),('epsilon',5),('nu',6),('mu',7),('eta',8),('iota',9),('pi',10),('upsilon',11),('lambda',12),('omicron',13),('sigma',14),('rho',15),('omega',16),('xi',17),('chi',18),('phi',19),('kappa',20),('zeta',21),('tau',22),('psi',23),('theta',24);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE greek_abc ENABLE KEYS */;
+
+--
+-- Table structure for table `i_production`
+--
+
+DROP TABLE IF EXISTS i_production;
+CREATE TABLE i_production (
+  prod_id int(11) default NULL,
+  planet_id int(11) default NULL,
+  time int(11) default NULL,
+  count int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `i_production`
+--
+
+
+/*!40000 ALTER TABLE i_production DISABLE KEYS */;
+LOCK TABLES i_production WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE i_production ENABLE KEYS */;
+
+--
+-- Table structure for table `income_stats`
+--
+
+DROP TABLE IF EXISTS income_stats;
+CREATE TABLE income_stats (
+  uid int(11) NOT NULL default '0',
+  metal int(11) default '0',
+  energy int(11) default '0',
+  mopgas int(11) default '0',
+  erkunum int(11) default '0',
+  gortium int(11) default '0',
+  susebloom int(11) default '0',
+  tax_metal int(11) default '0',
+  tax_energy int(11) default '0',
+  tax_mopgas int(11) default '0',
+  tax_erkunum int(11) default '0',
+  tax_gortium int(11) default '0',
+  tax_susebloom int(11) default '0',
+  trade_metal int(11) default '0',
+  trade_energy int(11) default '0',
+  trade_mopgas int(11) default '0',
+  trade_erkunum int(11) default '0',
+  trade_gortium int(11) default '0',
+  trade_susebloom int(11) default '0',
+  earned_metal int(11) default '0',
+  earned_energy int(11) default '0',
+  earned_mopgas int(11) default '0',
+  earned_erkunum int(11) default '0',
+  earned_gortium int(11) default '0',
+  earned_susebloom int(11) default '0',
+  PRIMARY KEY  (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `income_stats`
+--
+
+
+/*!40000 ALTER TABLE income_stats DISABLE KEYS */;
+LOCK TABLES income_stats WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE income_stats ENABLE KEYS */;
+
+--
+-- Table structure for table `inf_transporters`
+--
+
+DROP TABLE IF EXISTS inf_transporters;
+CREATE TABLE inf_transporters (
+  prod_id int(11) default NULL,
+  storage int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inf_transporters`
+--
+
+
+/*!40000 ALTER TABLE inf_transporters DISABLE KEYS */;
+LOCK TABLES inf_transporters WRITE;
+INSERT INTO inf_transporters VALUES (9,300);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE inf_transporters ENABLE KEYS */;
+
+--
+-- Table structure for table `inf_transports`
+--
+
+DROP TABLE IF EXISTS inf_transports;
+CREATE TABLE inf_transports (
+  fid int(11) NOT NULL default '0',
+  prod_id int(11) NOT NULL default '0',
+  count int(11) default NULL,
+  PRIMARY KEY  (fid,prod_id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inf_transports`
+--
+
+
+/*!40000 ALTER TABLE inf_transports DISABLE KEYS */;
+LOCK TABLES inf_transports WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE inf_transports ENABLE KEYS */;
+
+--
+-- Table structure for table `inf_values`
+--
+
+DROP TABLE IF EXISTS inf_values;
+CREATE TABLE inf_values (
+  prod_id int(11) default NULL,
+  armour int(11) default NULL,
+  attack int(11) default NULL,
+  defense int(11) default NULL,
+  storage int(11) default NULL,
+  initiative int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inf_values`
+--
+
+
+/*!40000 ALTER TABLE inf_values DISABLE KEYS */;
+LOCK TABLES inf_values WRITE;
+INSERT INTO inf_values VALUES (7,1,2,1,1,30),(20,2,4,2,1,40),(41,8,3,1,2,25),(44,16,6,2,4,20),(50,1,2,1,1,60),(54,12,5,4,6,35),(55,30,10,8,16,10);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE inf_values ENABLE KEYS */;
+
+--
+-- Table structure for table `infantery`
+--
+
+DROP TABLE IF EXISTS infantery;
+CREATE TABLE infantery (
+  prod_id int(11) NOT NULL default '0',
+  count int(11) default NULL,
+  pid int(11) NOT NULL default '0',
+  uid int(11) NOT NULL default '0',
+  PRIMARY KEY  (uid,prod_id,pid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `infantery`
+--
+
+
+/*!40000 ALTER TABLE infantery DISABLE KEYS */;
+LOCK TABLES infantery WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE infantery ENABLE KEYS */;
+
+--
+-- Table structure for table `invitations`
+--
+
+DROP TABLE IF EXISTS invitations;
+CREATE TABLE invitations (
+  aid int(11) default NULL,
+  uid int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `invitations`
+--
+
+
+/*!40000 ALTER TABLE invitations DISABLE KEYS */;
+LOCK TABLES invitations WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE invitations ENABLE KEYS */;
+
+--
+-- Table structure for table `journal`
+--
+
+DROP TABLE IF EXISTS journal;
+CREATE TABLE journal (
+  uid int(11) default NULL,
+  id int(11) NOT NULL auto_increment,
+  subject varchar(255) default NULL,
+  text blob,
+  time datetime default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `journal`
+--
+
+
+/*!40000 ALTER TABLE journal DISABLE KEYS */;
+LOCK TABLES journal WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE journal ENABLE KEYS */;
+
+--
+-- Table structure for table `jumpgates`
+--
+
+DROP TABLE IF EXISTS jumpgates;
+CREATE TABLE jumpgates (
+  prod_id int(11) default NULL,
+  password varchar(255) default NULL,
+  sid int(11) default NULL,
+  used_tonnage int(11) default '0',
+  pid int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jumpgates`
+--
+
+
+/*!40000 ALTER TABLE jumpgates DISABLE KEYS */;
+LOCK TABLES jumpgates WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE jumpgates ENABLE KEYS */;
+
+--
+-- Table structure for table `jumpgatevalues`
+--
+
+DROP TABLE IF EXISTS jumpgatevalues;
+CREATE TABLE jumpgatevalues (
+  prod_id int(11) default NULL,
+  tonnage int(11) default NULL,
+  reload int(11) NOT NULL default '0'
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jumpgatevalues`
+--
+
+
+/*!40000 ALTER TABLE jumpgatevalues DISABLE KEYS */;
+LOCK TABLES jumpgatevalues WRITE;
+INSERT INTO jumpgatevalues VALUES (61,5000,100);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE jumpgatevalues ENABLE KEYS */;
+
+--
+-- Table structure for table `keksession`
+--
+
+DROP TABLE IF EXISTS keksession;
+CREATE TABLE keksession (
+  uid int(11) NOT NULL default '0',
+  session varchar(255) default NULL,
+  time timestamp NOT NULL,
+  UNIQUE KEY uid (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `keksession`
+--
+
+
+/*!40000 ALTER TABLE keksession DISABLE KEYS */;
+LOCK TABLES keksession WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE keksession ENABLE KEYS */;
+
+--
+-- Table structure for table `kekvars`
+--
+
+DROP TABLE IF EXISTS kekvars;
+CREATE TABLE kekvars (
+  vars longtext,
+  sid varchar(255) NOT NULL default '',
+  PRIMARY KEY  (sid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kekvars`
+--
+
+
+/*!40000 ALTER TABLE kekvars DISABLE KEYS */;
+LOCK TABLES kekvars WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE kekvars ENABLE KEYS */;
+
+--
+-- Table structure for table `mail`
+--
+
+DROP TABLE IF EXISTS mail;
+CREATE TABLE mail (
+  uid int(11) default NULL,
+  fuid int(11) default NULL,
+  text blob,
+  subject varchar(255) default NULL,
+  id int(11) NOT NULL auto_increment,
+  time timestamp NOT NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `mail`
+--
+
+
+/*!40000 ALTER TABLE mail DISABLE KEYS */;
+LOCK TABLES mail WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE mail ENABLE KEYS */;
+
+--
+-- Table structure for table `mailforms`
+--
+
+DROP TABLE IF EXISTS mailforms;
+CREATE TABLE mailforms (
+  content blob,
+  aid int(11) default NULL,
+  id int(11) NOT NULL auto_increment,
+  typ char(1) NOT NULL default '',
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `mailforms`
+--
+
+
+/*!40000 ALTER TABLE mailforms DISABLE KEYS */;
+LOCK TABLES mailforms WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE mailforms ENABLE KEYS */;
+
+--
+-- Table structure for table `map_sizes`
+--
+
+DROP TABLE IF EXISTS map_sizes;
+CREATE TABLE map_sizes (
+  id int(11) NOT NULL auto_increment,
+  width int(4) NOT NULL default '800',
+  height int(4) NOT NULL default '600',
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `map_sizes`
+--
+
+
+/*!40000 ALTER TABLE map_sizes DISABLE KEYS */;
+LOCK TABLES map_sizes WRITE;
+INSERT INTO map_sizes VALUES (1,800,600),(2,1024,768),(3,1152,864),(4,1280,1024);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE map_sizes ENABLE KEYS */;
+
+--
+-- Table structure for table `nachnamen`
+--
+
+DROP TABLE IF EXISTS nachnamen;
+CREATE TABLE nachnamen (
+  name varchar(255) default NULL,
+  id int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (id),
+  UNIQUE KEY name (name)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `nachnamen`
+--
+
+
+/*!40000 ALTER TABLE nachnamen DISABLE KEYS */;
+LOCK TABLES nachnamen WRITE;
+INSERT INTO nachnamen VALUES ('Schmitz',1),('Oey',2),('Geis',3),('Bullock',4),('Andersson',5),('Clinton',6),('Gates',7),('Bush',8),('Stewart',9),('Schumacher',10),('Graf',11),('Koh',12),('Kohl',13),('Papadopolus',14),('Pansen',15),('Versace',16),('Alesi',17),('Mueller',18),('Kayal',19),('Hildon',20),('Frohnmayer',21),('Hartz',22),('Sheppert',23),('Campbell',24),('Peterson',25),('Harrison',26),('Keller',27),('Behl',28),('Marshall',29),('Zmak',30),('Hunt',31),('Taylor',32),('Popescu',33),('Walker',34),('McLeod',35),('McAllister',36),('McDonald',37),('McFurley',38),('Hood',39),('Lee',40),('Chong',41),('Il',42),('N\'Gong',43),('Musaka',44),('Muyomi',45),('Thoma',46),('Jauch',47),('Govanni',48),('Mandela',49),('Hyatt',50),('Kandinski',51),('Putin',52),('Tchekow',53),('Steiner',54),('Streichardt',55),('West',56),('Liedke',57),('East',58),('North',59),('South',60),('Virgin',61),('Lau',62),('Lao',63),('Steel',64),('Stahl',65);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE nachnamen ENABLE KEYS */;
+
+--
+-- Table structure for table `o_production`
+--
+
+DROP TABLE IF EXISTS o_production;
+CREATE TABLE o_production (
+  prod_id int(11) default NULL,
+  planet_id int(11) NOT NULL default '0',
+  time tinyint(3) default NULL,
+  pos int(11) NOT NULL default '1'
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `o_production`
+--
+
+
+/*!40000 ALTER TABLE o_production DISABLE KEYS */;
+LOCK TABLES o_production WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE o_production ENABLE KEYS */;
+
+--
+-- Table structure for table `online`
+--
+
+DROP TABLE IF EXISTS online;
+CREATE TABLE online (
+  uid int(11) NOT NULL default '0',
+  last_chg timestamp NOT NULL,
+  PRIMARY KEY  (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `online`
+--
+
+
+/*!40000 ALTER TABLE online DISABLE KEYS */;
+LOCK TABLES online WRITE;
+INSERT INTO online VALUES (7,'2002-12-21 00:42:54');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE online ENABLE KEYS */;
+
+--
+-- Table structure for table `options`
+--
+
+DROP TABLE IF EXISTS options;
+CREATE TABLE options (
+  uid int(11) NOT NULL default '0',
+  map_size int(11) NOT NULL default '1',
+  map_constellation_cache tinyint(2) default '9',
+  map_system_cache tinyint(2) default '10',
+  map_autoupdate tinyint(1) default '0',
+  map_anims tinyint(1) default '1'
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `options`
+--
+
+
+/*!40000 ALTER TABLE options DISABLE KEYS */;
+LOCK TABLES options WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE options ENABLE KEYS */;
+
+--
+-- Table structure for table `p_production`
+--
+
+DROP TABLE IF EXISTS p_production;
+CREATE TABLE p_production (
+  prod_id int(11) default NULL,
+  planet_id int(11) NOT NULL default '0',
+  time tinyint(3) default NULL,
+  pos int(11) NOT NULL default '1',
+  UNIQUE KEY planet_id (planet_id,pos)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `p_production`
+--
+
+
+/*!40000 ALTER TABLE p_production DISABLE KEYS */;
+LOCK TABLES p_production WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE p_production ENABLE KEYS */;
+
+--
+-- Table structure for table `planet_values`
+--
+
+DROP TABLE IF EXISTS planet_values;
+CREATE TABLE planet_values (
+  type char(1) NOT NULL default '',
+  max_poplevel int(11) default NULL,
+  gain decimal(3,2) default NULL,
+  PRIMARY KEY  (type)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `planet_values`
+--
+
+
+/*!40000 ALTER TABLE planet_values DISABLE KEYS */;
+LOCK TABLES planet_values WRITE;
+INSERT INTO planet_values VALUES ('O',15,0.02),('H',15,0.02),('M',15,0.02),('R',15,0.02),('I',15,0.02),('G',15,0.02),('D',15,0.02),('E',15,0.02),('A',15,0.02),('T',15,0.02);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE planet_values ENABLE KEYS */;
+
+--
+-- Table structure for table `planets`
+--
+
+DROP TABLE IF EXISTS planets;
+CREATE TABLE planets (
+  x int(11) default NULL,
+  sid int(11) NOT NULL default '0',
+  uid int(11) NOT NULL default '0',
+  metal int(3) default NULL,
+  energy int(3) default NULL,
+  mopgas int(3) default NULL,
+  erkunum int(3) default NULL,
+  gortium int(3) default NULL,
+  susebloom int(3) default NULL,
+  start tinyint(1) default '0',
+  id int(11) NOT NULL auto_increment,
+  name varchar(255) NOT NULL default 'Unnamed',
+  type char(1) default NULL,
+  population bigint(11) default NULL,
+  PRIMARY KEY  (id),
+  KEY sid (sid),
+  KEY uid (uid)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `planets`
+--
+
+
+/*!40000 ALTER TABLE planets DISABLE KEYS */;
+LOCK TABLES planets WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE planets ENABLE KEYS */;
+
+--
+-- Table structure for table `popgain`
+--
+
+DROP TABLE IF EXISTS popgain;
+CREATE TABLE popgain (
+  pid int(11) NOT NULL default '0',
+  gain decimal(3,2) NOT NULL default '0.00',
+  max_poplevel int(11) NOT NULL default '0',
+  PRIMARY KEY  (pid),
+  KEY gain (gain)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `popgain`
+--
+
+
+/*!40000 ALTER TABLE popgain DISABLE KEYS */;
+LOCK TABLES popgain WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE popgain ENABLE KEYS */;
+
+--
+-- Table structure for table `portraits`
+--
+
+DROP TABLE IF EXISTS portraits;
+CREATE TABLE portraits (
+  pic varchar(255) default NULL,
+  gender char(1) default NULL,
+  id int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portraits`
+--
+
+
+/*!40000 ALTER TABLE portraits DISABLE KEYS */;
+LOCK TABLES portraits WRITE;
+INSERT INTO portraits VALUES ('p1.jpg','m',1),('p2.jpg','w',2),('p3.jpg','m',3),('p4.jpg','m',4),('p5.jpg','m',5),('p6.jpg','w',6),('p7.jpg','m',7),('p8.jpg','m',8),('p9.jpg','m',9),('p10.jpg','m',10),('p11.jpg','m',11),('p12.jpg','m',12),('p13.jpg','m',13),('p14.jpg','w',14),('p15.jpg','w',15);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE portraits ENABLE KEYS */;
+
+--
+-- Table structure for table `prod_upgrade`
+--
+
+DROP TABLE IF EXISTS prod_upgrade;
+CREATE TABLE prod_upgrade (
+  factor decimal(10,0) default NULL,
+  prod_id int(11) default NULL,
+  ressource varchar(255) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `prod_upgrade`
+--
+
+
+/*!40000 ALTER TABLE prod_upgrade DISABLE KEYS */;
+LOCK TABLES prod_upgrade WRITE;
+INSERT INTO prod_upgrade VALUES (2,4,'energy'),(4,23,'energy'),(2,100,'metal'),(3,31,'mopgas'),(3,32,'gortium'),(3,33,'erkunum'),(3,34,'susebloom'),(4,63,'metal'),(8,51,'energy'),(2,53,'metal');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE prod_upgrade ENABLE KEYS */;
+
+--
+-- Table structure for table `production`
+--
+
+DROP TABLE IF EXISTS production;
+CREATE TABLE production (
+  com_time tinyint(3) default NULL,
+  typ char(2) default NULL,
+  tech int(11) NOT NULL default '0',
+  prod_id int(11) NOT NULL auto_increment,
+  name varchar(255) default NULL,
+  description blob,
+  susebloom int(11) NOT NULL default '0',
+  gortium int(11) NOT NULL default '0',
+  erkunum int(11) NOT NULL default '0',
+  mopgas int(11) NOT NULL default '0',
+  energy int(11) NOT NULL default '0',
+  metal int(11) NOT NULL default '0',
+  special char(1) default '',
+  p_depend int(11) default '0',
+  manual varchar(255) default NULL,
+  pic varchar(255) NOT NULL default 'default.jpg',
+  colonists int(11) default '0',
+  upgrade tinyint(1) default '0',
+  PRIMARY KEY  (prod_id),
+  UNIQUE KEY prod_id (prod_id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `production`
+--
+
+
+/*!40000 ALTER TABLE production DISABLE KEYS */;
+LOCK TABLES production WRITE;
+INSERT INTO production VALUES (1,'P',0,1,'Barracks','Basic infantry training camp',0,0,0,0,1000,1000,'',NULL,NULL,'p_barracks.jpg',0,0),(2,'L',2,2,'Scout','Small, fast and weak spaceship',0,0,0,0,100,100,'',60,NULL,'p_scout.jpg',0,0),(1,'L',2,3,'Probe','Small and unarmed drone',0,0,0,0,50,50,'',NULL,NULL,'p_probe.jpg',0,0),(2,'P',3,4,'Nuclear Power Plant','Nuclear Energy',0,0,0,0,200,1000,'',NULL,NULL,'p_nuclear_plant.jpg',0,0),(5,'P',4,5,'Laser Weapons Factory','First weapon for use in Space',0,0,0,0,700,500,'',1,NULL,'p_lwf.jpg',0,0),(3,'L',4,6,'Interceptor','Maybe there are some dangers in space.',0,0,0,0,200,200,'',5,NULL,'p_interceptor.jpg',0,0),(1,'I',4,7,'Soldier','Protection for our cities',0,0,0,0,10,10,'',1,NULL,'p_soldier.jpg',0,0),(10,'R',6,8,'Tradestation','Galactic interrelationships depend on galactic trade.',0,0,0,0,5000,5000,'U',NULL,NULL,'p_tradestation.jpg',0,0),(3,'M',6,9,'Transporters','Basic transporter. Provides up to 300 storage space.',0,0,0,0,200,200,'T',60,NULL,'default.jpg',0,0),(12,'O',7,10,'Spacestation','Some light defenses, an increased scanrange and the ability to construct orbital buildings makes the station a must have.',0,0,0,0,3000,6000,'',60,NULL,'p_spacestation.jpg',0,0),(6,'P',8,11,'Arcology','The autonom City',0,0,0,0,2000,5000,'P',NULL,NULL,'p_arcology.jpg',0,0),(24,'H',8,12,'Colony ship','Earth is just too small for mankind',0,0,0,0,4000,4000,'C',60,NULL,'p_colonyship.jpg',1,0),(2,'P',10,13,'Ground batteries','Lets rain beams of death over our foes, that dare to land on our terrain',0,0,0,0,2000,3000,'',1,NULL,'default.jpg',0,0),(3,'L',10,14,'B-5056 Bomber','Very effective attack unit',0,0,0,0,200,250,'',60,NULL,'p_b5056.jpg',0,0),(15,'P',11,15,'Planetary Shield Generator','No probe or puny Dreamcatcher will scan our surface no more, no bombs will pierce our buildings. (Sorry, the shield is not yet working, though it blocks scans)',0,500,500,1000,5000,2000,'',23,NULL,'p_planetary_shield.jpg',0,0),(4,'M',11,16,'Peacekeeper Corvette','EMP-weapon armed corvette',0,0,0,0,350,400,'',60,NULL,'p_peace_corv.jpg',0,0),(8,'O',12,17,'Orbital Refueling Station','Reduces fleet refueling time of bypassing own and allied forces to 1 week',0,0,0,1000,4000,2000,'F',10,NULL,'default.jpg',0,0),(10,'H',50,18,'Draconis Destroyer','Light and fast destroyer',0,200,100,100,8000,3000,'',67,NULL,'default.jpg',0,0),(12,'P',14,19,'Gen Factory','Increases poplation grow',0,0,0,0,600,400,'G',NULL,NULL,'p_gen_fac.jpg',0,0),(2,'I',14,20,'Space Marines','Elite Ground Troopers',0,0,0,0,20,20,'',1,NULL,'default.jpg',0,0),(4,'P',15,21,'Cloning Vaults','...',0,0,0,0,2000,500,'G',19,NULL,'default.jpg',0,0),(5,'P',16,22,'Agriculture Command Center','Imporved Farming',0,0,0,0,900,200,'G',NULL,NULL,'default.jpg',0,0),(24,'P',18,23,'Fusion Power Plant','Advanced energy scource',0,0,0,0,1000,2000,'',4,NULL,'default.jpg',0,0),(4,'L',22,24,'N-2103 Bomber','More destructiv? Yesss...',0,50,100,50,500,500,'',69,NULL,'p_n2103.jpg',0,0),(30,'P',23,25,'Clima Controlling Facillity','Impoves living conditions on a planet',0,0,0,0,10000,4000,'P',NULL,NULL,'default.jpg',0,0),(24,'P',25,26,'Instant Plasma Facility','Produces plasma weapons',0,0,0,0,5000,4000,'',NULL,NULL,'default.jpg',0,0),(6,'P',26,27,'Missile Base',' Beautifull fireworks will brighten the dark of space and burning deathcrys will caress our ears. Let their battleships melt to drops of glass.',0,500,0,0,2000,4000,'',1,NULL,'default.jpg',0,0),(6,'M',26,28,'Hijacker','Able to caputre enemy ships (M)',0,500,0,0,1000,1000,'',10,NULL,'p_hijacker.jpg',0,0),(6,'M',27,29,'Freezer','Able to disable enemy ships (M)',0,200,200,200,1200,1000,'',10,NULL,'p_freezer.jpg',0,0),(48,'P',29,30,'Labour Training Camp','Increases production (not implemented)',0,0,0,0,8000,8000,'',NULL,NULL,'default.jpg',0,0),(16,'O',34,31,'Mopgas Extraction Platform','Extracts mopgas from the atmosphere of toxic planets',0,500,500,0,4000,4000,'',NULL,NULL,'default.jpg',0,0),(16,'P',35,32,'Gortium Mine','Extracts Gortium from ancient planets',0,0,0,0,2000,8000,'',NULL,NULL,'default.jpg',0,0),(16,'P',36,33,'Erkunum Pumping Station','Exploits the erkunum deposits on ice planets',0,0,0,0,6000,4000,'',NULL,NULL,'p_erk_pump.jpg',0,0),(16,'P',37,34,'Mobile Susebloom Harvester','Increases the susebloom harvest on eden planets',0,0,500,500,5000,5000,'',NULL,NULL,'default.jpg',0,0),(10,'M',39,35,'Dreamcatcher Frigatte','Detects hidden ships',0,200,500,0,800,800,'',60,NULL,'default.jpg',0,0),(8,'P',40,36,'Surveillance Cluster','Sensor array',0,0,2000,0,10000,5000,'',NULL,NULL,'default.jpg',0,0),(10,'H',40,37,'Beholder','...',0,1000,500,500,2700,3700,'',67,NULL,'p_beholder.jpg',0,0),(14,'P',41,38,'Defence Masquerader','Hides your defence from enemy sensors',0,0,0,0,3000,900,'',NULL,NULL,'default.jpg',0,0),(8,'M',41,39,'Octopus Corvette','Hides the accompaning fleet from detection',0,100,200,0,1600,1000,'',67,NULL,'p_octopus.jpg',0,0),(12,'P',43,40,'Cybersurgery Facility','Improves organic live through technological means',0,0,1000,500,10000,12000,'P',NULL,NULL,'default.jpg',0,0),(4,'I',43,41,'Cyborg','High tech soldier',0,0,0,0,50,50,'',40,NULL,'p_cyborg.jpg',0,0),(12,'P',44,42,'Living/Rigged Factory','Mind controlled factory',0,0,0,0,2000,2000,'',NULL,NULL,'default.jpg',0,0),(11,'P',45,43,'Pleasure Studio','Improves your people moral',1000,0,0,0,1600,600,'G',NULL,NULL,'default.jpg',0,0),(1,'V',48,44,'Droid','Ground combat robot',0,0,0,0,100,300,'',40,NULL,'p_droid.jpg',0,0),(10,'M',49,45,'Hydra','More guns...more power',0,0,100,100,1500,2000,'',10,NULL,'default.jpg',0,0),(15,'P',50,46,'Laser Weapons Factory II','...',0,500,500,500,2300,1400,'',5,NULL,'p_lwf2.jpg',0,0),(16,'P',58,47,'Cure Hospital','Improves living conditions',2000,0,0,0,4000,4000,'P',NULL,NULL,'default.jpg',0,0),(18,'H',60,48,'Behemoth','Big ship...big guns...big...',0,5000,1000,5000,16000,20000,'',67,NULL,'default.jpg',0,0),(17,'O',61,49,'Orbital Batterie','A platform of deathly beauty, as our enemys will find out soon.',0,500,1000,1000,8000,8000,'',10,NULL,'default.jpg',0,0),(10,'I',64,50,'Shadow','Stealth Infantrie',0,0,100,0,100,10,'',58,NULL,'p_shadow.jpg',0,0),(92,'P',69,51,'Antimatter Power Plant','Ultimate power scource',0,1000,5000,3000,20000,40000,'',23,NULL,'default.jpg',0,0),(16,'H',73,52,'Wrath','Cloaks accompanding fleet',0,500,4000,2000,12000,6000,'',68,NULL,'default.jpg',0,0),(1,'P',0,53,'Metal Mine','Produces Metal',0,0,0,0,1000,200,'',NULL,NULL,'p_metal_mine.jpg',0,0),(3,'V',18,54,'Mad Max','Light ground combat vehicle',0,0,0,0,30,50,'',5,NULL,'default.jpg',0,0),(4,'I',25,55,'Stonewall Tank','Heavy plasma tank',0,0,0,0,80,100,'',26,NULL,'p_stonewalltank.jpg',0,0),(6,'P',30,56,'Neural Secrurity Network','Improves security conditions on your planet',0,0,0,0,800,800,'',NULL,NULL,'default.jpg',0,0),(8,'P',47,57,'Observation Center','...',0,0,10000,0,15000,15000,'',NULL,NULL,'p_observation_center.jpg',0,0),(10,'P',64,58,'Infiltration Training Camp','...',0,0,0,0,1500,2000,'',1,NULL,'default.jpg',0,0),(24,'P',74,59,'Cloaking Suit Factory','Makes your agents invisible...',0,0,2000,2000,8000,5000,'',NULL,NULL,'default.jpg',0,0),(4,'P',0,60,'Starport','First step away from your homeworld',0,0,0,0,800,800,'',NULL,NULL,'p_starport.jpg',0,0),(92,'O',27,61,'Jumpgate','...',0,10000,10000,10000,20000,20000,'S',10,NULL,'p_jumpgate.jpg',0,0),(24,'P',18,63,'Mining Complex','Expands the miningsystem around the hole planet',0,0,0,0,2000,1000,'',53,NULL,'default.jpg',0,0),(10,'M',12,64,'Gunship','The Gunship is a predator. With it\'s 3 laser guns it pings Europa Class ships ot of the space easyly.',0,0,0,0,600,600,'',10,NULL,'p_gunship.jpg',0,0),(0,'P',-1,65,'Colony','The Living and Workingplace where our Colonists increases our empires honour',0,0,0,0,0,1000,'',0,NULL,'default.jpg',0,0),(18,'O',12,67,'Orbital Shipyard','Huge orbital shipyard',0,500,500,500,5000,5000,'',10,NULL,'default.jpg',0,0),(24,'O',73,68,'Cloaking Module','Builds wrath',0,500,2000,2000,8000,1000,'',10,NULL,'default.jpg',0,1),(5,'O',22,69,'Nano Warfare Module','Builds N-2103 Bomber',0,200,200,0,500,500,'',10,NULL,'default.jpg',0,1),(36,'P',66,70,'Subterran Arcology','Increases the planets population limit',0,1000,500,500,4000,2000,'L',NULL,NULL,'default.jpg',0,0),(3,'L',44,71,'Sabre','The ultimate Europe-Class hunter.',0,100,100,100,200,200,'',67,NULL,'default.jpg',0,0);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE production ENABLE KEYS */;
+
+--
+-- Table structure for table `reload`
+--
+
+DROP TABLE IF EXISTS reload;
+CREATE TABLE reload (
+  uid int(11) NOT NULL default '0',
+  UNIQUE KEY uid (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reload`
+--
+
+
+/*!40000 ALTER TABLE reload DISABLE KEYS */;
+LOCK TABLES reload WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE reload ENABLE KEYS */;
+
+--
+-- Table structure for table `res_to_trade`
+--
+
+DROP TABLE IF EXISTS res_to_trade;
+CREATE TABLE res_to_trade (
+  metal int(11) NOT NULL default '0',
+  energy int(11) NOT NULL default '0',
+  mopgas int(11) NOT NULL default '0',
+  erkunum int(11) NOT NULL default '0',
+  gortium int(11) NOT NULL default '0',
+  susebloom int(11) NOT NULL default '0',
+  uid int(11) NOT NULL default '0',
+  PRIMARY KEY  (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `res_to_trade`
+--
+
+
+/*!40000 ALTER TABLE res_to_trade DISABLE KEYS */;
+LOCK TABLES res_to_trade WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE res_to_trade ENABLE KEYS */;
+
+--
+-- Table structure for table `research`
+--
+
+DROP TABLE IF EXISTS research;
+CREATE TABLE research (
+  uid int(11) NOT NULL default '0',
+  t_id int(11) default NULL,
+  KEY uid (uid)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `research`
+--
+
+
+/*!40000 ALTER TABLE research DISABLE KEYS */;
+LOCK TABLES research WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE research ENABLE KEYS */;
+
+--
+-- Table structure for table `researching`
+--
+
+DROP TABLE IF EXISTS researching;
+CREATE TABLE researching (
+  t_id int(11) default NULL,
+  uid int(11) default NULL,
+  time int(11) default '0'
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `researching`
+--
+
+
+/*!40000 ALTER TABLE researching DISABLE KEYS */;
+LOCK TABLES researching WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE researching ENABLE KEYS */;
+
+--
+-- Table structure for table `ressources`
+--
+
+DROP TABLE IF EXISTS ressources;
+CREATE TABLE ressources (
+  metal int(11) default NULL,
+  energy int(11) default NULL,
+  mopgas int(11) default NULL,
+  erkunum int(11) default NULL,
+  gortium int(11) default NULL,
+  susebloom int(11) default NULL,
+  uid int(11) default NULL,
+  money int(11) NOT NULL default '1000',
+  colonists int(11) default NULL
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `ressources`
+--
+
+
+/*!40000 ALTER TABLE ressources DISABLE KEYS */;
+LOCK TABLES ressources WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE ressources ENABLE KEYS */;
+
+--
+-- Table structure for table `routes`
+--
+
+DROP TABLE IF EXISTS routes;
+CREATE TABLE routes (
+  route mediumtext,
+  fid int(11) NOT NULL default '0',
+  PRIMARY KEY  (fid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `routes`
+--
+
+
+/*!40000 ALTER TABLE routes DISABLE KEYS */;
+LOCK TABLES routes WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE routes ENABLE KEYS */;
+
+--
+-- Table structure for table `s_production`
+--
+
+DROP TABLE IF EXISTS s_production;
+CREATE TABLE s_production (
+  prod_id int(11) default NULL,
+  planet_id int(11) default NULL,
+  time tinyint(3) default NULL,
+  count int(11) unsigned default NULL
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `s_production`
+--
+
+
+/*!40000 ALTER TABLE s_production DISABLE KEYS */;
+LOCK TABLES s_production WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE s_production ENABLE KEYS */;
+
+--
+-- Table structure for table `scanradius`
+--
+
+DROP TABLE IF EXISTS scanradius;
+CREATE TABLE scanradius (
+  prod_id int(11) default NULL,
+  radius int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `scanradius`
+--
+
+
+/*!40000 ALTER TABLE scanradius DISABLE KEYS */;
+LOCK TABLES scanradius WRITE;
+INSERT INTO scanradius VALUES (10,250),(36,400),(57,600),(39,200),(2,100),(3,100);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE scanradius ENABLE KEYS */;
+
+--
+-- Table structure for table `session_vars`
+--
+
+DROP TABLE IF EXISTS session_vars;
+CREATE TABLE session_vars (
+  sid varchar(255) NOT NULL default '',
+  vars text,
+  PRIMARY KEY  (sid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `session_vars`
+--
+
+
+/*!40000 ALTER TABLE session_vars DISABLE KEYS */;
+LOCK TABLES session_vars WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE session_vars ENABLE KEYS */;
+
+--
+-- Table structure for table `shipoffers`
+--
+
+DROP TABLE IF EXISTS shipoffers;
+CREATE TABLE shipoffers (
+  prod_id int(11) NOT NULL default '0',
+  station_id int(11) NOT NULL default '0',
+  price decimal(9,2) unsigned default NULL,
+  count int(11) unsigned NOT NULL default '0'
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shipoffers`
+--
+
+
+/*!40000 ALTER TABLE shipoffers DISABLE KEYS */;
+LOCK TABLES shipoffers WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE shipoffers ENABLE KEYS */;
+
+--
+-- Table structure for table `shipvalues`
+--
+
+DROP TABLE IF EXISTS shipvalues;
+CREATE TABLE shipvalues (
+  prod_id int(11) NOT NULL default '0',
+  initiative int(11) default NULL,
+  agility int(11) default NULL,
+  warpreload int(11) default NULL,
+  hull int(11) default NULL,
+  tonnage int(11) default NULL,
+  weaponpower int(11) default NULL,
+  shield int(11) default NULL,
+  ecm int(11) default NULL,
+  target1 char(1) default NULL,
+  sensor int(11) default NULL,
+  weaponskill int(11) default NULL,
+  special char(1) default '',
+  armor int(11) default NULL,
+  num_attacks int(11) NOT NULL default '0',
+  PRIMARY KEY  (prod_id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `shipvalues`
+--
+
+
+/*!40000 ALTER TABLE shipvalues DISABLE KEYS */;
+LOCK TABLES shipvalues WRITE;
+INSERT INTO shipvalues VALUES (2,80,80,1,13,50,10,0,0,'L',10,60,'',7,1),(3,10,1,1,6,25,1,0,0,'L',50,1,'',3,1),(6,75,70,3,25,100,25,0,0,'L',15,50,'',13,1),(9,10,50,4,25,100,10,5,5,'L',20,50,'',13,1),(12,10,20,10,500,2000,10,50,0,'L',20,5,'',267,1),(14,55,65,4,31,125,50,3,0,'H',40,25,'B',17,1),(16,50,45,4,50,200,30,15,10,'L',20,30,'E',27,1),(18,45,45,10,408,1700,120,150,10,'H',50,50,'',217,1),(24,45,50,4,71,300,75,7,0,'H',45,20,'B',38,1),(28,5,50,5,208,1000,50,20,15,'M',20,50,'R',108,1),(29,52,50,5,158,700,25,10,10,'L',30,35,'',83,1),(35,40,45,5,133,600,25,10,10,'L',70,25,'S',70,1),(39,40,35,5,142,600,25,15,10,'L',50,20,'S',75,1),(37,40,40,10,629,2850,125,220,20,'M',75,40,'',330,1),(45,45,55,5,250,1000,70,10,10,'M',50,35,'',133,1),(48,35,10,14,3333,15000,200,50,30,'H',50,40,'B',1750,1),(52,50,70,10,833,3500,70,45,0,'L',10,80,'C',442,1),(64,50,55,4,75,300,25,5,5,'L',15,45,'',40,1),(1,1,1,1,125,1,0,0,0,'L',10,0,'',67,1),(4,1,1,1,125,1,0,0,0,'L',0,0,'',67,1),(5,1,1,1,63,1,0,0,0,'L',0,0,'',33,1),(8,21,22,23,24,25,0,0,28,'L',29,20,'',10,1),(10,50,1,1,750,1,15,50,0,'L',50,10,'',400,1),(11,1,1,1,625,1,0,0,0,'L',0,0,'',333,1),(13,60,1,1,375,1,50,100,0,'L',75,20,'',200,1),(15,1,1,1,333,1,0,1000,0,'L',0,0,'H',175,1),(17,1,1,1,250,1,0,50,0,'L',0,0,'',133,1),(19,1,1,1,50,1,0,0,0,'L',0,0,'',27,1),(21,1,1,1,63,1,0,0,0,'L',0,0,'',33,1),(22,1,1,1,25,1,0,0,0,'L',0,0,'',13,1),(23,1,1,1,250,1,0,0,0,'L',0,0,'',133,1),(25,1,1,1,500,1,0,0,0,'L',0,0,'',267,1),(26,1,1,1,500,1,0,0,0,'L',0,0,'',267,1),(27,55,1,1,583,1,100,120,0,'M',80,40,'',308,1),(30,1,1,1,1000,1,0,0,0,'L',0,0,'',533,1),(31,1,1,1,583,1,0,0,0,'L',0,0,'',308,1),(32,1,1,1,1000,1,0,0,0,'L',0,0,'',533,1),(33,1,1,1,500,1,0,0,0,'L',0,0,'',267,1),(34,1,1,1,625,1,0,0,0,'L',0,0,'',333,1),(36,1,1,1,625,1,0,0,0,'L',99,0,'',333,1),(38,1,1,1,113,1,0,0,0,'L',0,0,'',60,1),(40,1,1,1,1500,1,0,0,0,'L',0,0,'',800,1),(42,1,1,1,250,1,0,0,0,'L',0,0,'',133,1),(43,1,1,1,75,1,0,0,0,'L',0,0,'',40,1),(46,1,1,1,258,1,0,0,0,'L',0,0,'',135,1),(47,1,1,1,500,1,0,0,0,'L',0,0,'',267,1),(49,80,1,1,1083,1,150,200,0,'H',90,50,'',575,1),(51,1,1,1,5167,1,0,0,0,'L',0,0,'',2750,1),(53,1,1,1,25,1,0,0,0,'L',0,0,'',13,1),(56,1,1,1,100,1,0,0,0,'L',0,0,'',53,1),(57,1,1,1,1875,1,0,0,0,'L',99,0,'',1000,1),(58,1,1,1,250,1,0,0,0,'L',0,0,'',133,1),(59,1,1,1,625,1,0,0,0,'L',0,0,'',333,1),(60,1,1,1,100,1,0,0,0,'L',50,0,'',53,1),(61,1,1,1,4167,1,0,200,0,'L',0,0,'',2167,1),(63,1,1,1,125,1,0,0,0,'L',0,0,'',67,1),(65,1,1,1,125,1,0,0,0,'L',0,0,'0',67,1),(67,1,1,1,708,1,0,100,0,'L',0,0,'0',375,1),(68,1,1,1,208,1,0,10,0,'L',0,0,'0',108,1),(69,1,1,1,96,1,0,10,0,'L',0,0,'0',50,1),(70,1,1,1,417,1,0,0,0,'L',0,0,'',217,1),(71,80,75,2,42,200,40,5,5,'L',40,70,'',22,1);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE shipvalues ENABLE KEYS */;
+
+--
+-- Table structure for table `skins`
+--
+
+DROP TABLE IF EXISTS skins;
+CREATE TABLE skins (
+  name varchar(255) default NULL,
+  id int(11) NOT NULL auto_increment,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skins`
+--
+
+
+/*!40000 ALTER TABLE skins DISABLE KEYS */;
+LOCK TABLES skins WRITE;
+INSERT INTO skins VALUES ('metal_blue',1);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE skins ENABLE KEYS */;
+
+--
+-- Table structure for table `special_actions`
+--
+
+DROP TABLE IF EXISTS special_actions;
+CREATE TABLE special_actions (
+  action_id int(11) NOT NULL auto_increment,
+  t_id int(11) NOT NULL default '0',
+  name varchar(255) default 'no name',
+  description varchar(255) default 'no description available',
+  metal int(6) default '0',
+  energy int(6) default '0',
+  mopgas int(6) default '0',
+  erkunum int(6) default '0',
+  gortium int(6) default '0',
+  susebloom int(6) default '0',
+  type varchar(50) NOT NULL default 'unspecified',
+  picture varchar(225) default NULL,
+  PRIMARY KEY  (action_id)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `special_actions`
+--
+
+
+/*!40000 ALTER TABLE special_actions DISABLE KEYS */;
+LOCK TABLES special_actions WRITE;
+INSERT INTO special_actions VALUES (3,21,'Tachyon Scan','Allows to scan fleets to retrieve their ship signatures',0,100,0,0,0,0,'fleet','control_button_tachyon_scan.svgz'),(4,40,'Starborne Computer Trojan','Allows to scan shipsystems to retrieve their target, mission and tactic',0,200,0,200,0,0,'fleet','none.svgz');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE special_actions ENABLE KEYS */;
+
+--
+-- Table structure for table `survey_session`
+--
+
+DROP TABLE IF EXISTS survey_session;
+CREATE TABLE survey_session (
+  sid varchar(255) NOT NULL default '',
+  uid int(11) default NULL,
+  fid int(11) default NULL,
+  type int(1) default NULL,
+  dt_exp int(10) unsigned default NULL,
+  ip int(10) NOT NULL default '0',
+  PRIMARY KEY  (sid),
+  KEY dt_exp (dt_exp),
+  KEY fid (fid),
+  KEY ip (ip)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `survey_session`
+--
+
+
+/*!40000 ALTER TABLE survey_session DISABLE KEYS */;
+LOCK TABLES survey_session WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE survey_session ENABLE KEYS */;
+
+--
+-- Table structure for table `systems`
+--
+
+DROP TABLE IF EXISTS systems;
+CREATE TABLE systems (
+  x int(11) NOT NULL default '0',
+  y int(11) NOT NULL default '0',
+  id int(11) NOT NULL auto_increment,
+  type int(11) default NULL,
+  cid int(11) default NULL,
+  name varchar(255) default NULL,
+  PRIMARY KEY  (id),
+  KEY x (x),
+  KEY y (y)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `systems`
+--
+
+
+/*!40000 ALTER TABLE systems DISABLE KEYS */;
+LOCK TABLES systems WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE systems ENABLE KEYS */;
+
+--
+-- Table structure for table `taxes`
+--
+
+DROP TABLE IF EXISTS taxes;
+CREATE TABLE taxes (
+  aid int(11) NOT NULL default '0',
+  taxmetal int(2) NOT NULL default '0',
+  taxenergy int(2) NOT NULL default '0',
+  taxleader int(2) NOT NULL default '40',
+  taxmilitary int(2) NOT NULL default '20',
+  taxdevelopement int(2) NOT NULL default '20',
+  taxforeign int(2) NOT NULL default '20',
+  taxmopgas int(2) NOT NULL default '0',
+  taxerkunum int(2) NOT NULL default '0',
+  taxgortium int(2) NOT NULL default '0',
+  taxsusebloom int(2) NOT NULL default '0',
+  incomemetal int(11) NOT NULL default '0',
+  incomeenergy int(11) NOT NULL default '0',
+  incomemopgas int(11) NOT NULL default '0',
+  incomeerkunum int(11) NOT NULL default '0',
+  incomegortium int(11) NOT NULL default '0',
+  incomesusebloom int(11) NOT NULL default '0'
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `taxes`
+--
+
+
+/*!40000 ALTER TABLE taxes DISABLE KEYS */;
+LOCK TABLES taxes WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE taxes ENABLE KEYS */;
+
+--
+-- Table structure for table `tech`
+--
+
+DROP TABLE IF EXISTS tech;
+CREATE TABLE tech (
+  name varchar(255) default NULL,
+  depend int(11) default NULL,
+  excl int(11) default NULL,
+  t_id int(11) NOT NULL auto_increment,
+  description text,
+  com_time int(11) default NULL,
+  flag char(1) default 'N',
+  special tinyint(4) default '0',
+  PRIMARY KEY  (t_id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `tech`
+--
+
+
+/*!40000 ALTER TABLE tech DISABLE KEYS */;
+LOCK TABLES tech WRITE;
+INSERT INTO tech VALUES ('Theory of Space Exploration',NULL,NULL,1,'Covers the basic technologies of Exploration',3,'T',0),('Instellar Jump Drive',1,NULL,2,'Allows jumping between the stars',3,'N',0),('Nuclear provided power cells',1,NULL,3,'Energy compression',3,'N',0),('Laser Wave Switch',1,NULL,4,'Designed for defending against Asteroids. Very Basic Laser weapon',3,'N',0),('Theory of Space Expansion',1,NULL,5,'Space doesn\'t just give us the right to use its ressources but also offers unlimited room for our citizens',4,'T',0),('Modular Cargo System',5,NULL,6,'Features a new generation of Cargo modules. Quickly exchangeable. This enables you to profit from trade and transport Infantery.',4,'N',0),('Docking absorption Unit',5,NULL,7,'Eases the process of Docking.',4,'N',0),('Integrated Living',5,NULL,8,'Combines the needs of humans in one building.',4,'N',0),('Theory of Space War',5,NULL,9,'We are helpless against Space aggression. New needs cover new possibilities.',5,'T',0),('Orbital Bombing Procedure',9,NULL,10,'Our enemies will never know what hit them.',5,'N',0),('Applied Electromagnetic Pulse',9,NULL,11,'Features a powerful EMP attack on enemy ships.',5,'N',0),('Advanced Space Travelling',9,NULL,12,'Nobody wins a war or even a batlle with big weapons. History has shown that the one thats faster has a very big advantage.',5,'N',0),('Theory of Life',9,NULL,13,'If we know what life is we can manipulate the world to our needs. Fascinating imagination, isn\'t it?',8,'T',0),('Genetic Engineering',13,NULL,14,'An improved genetic structure will improve the human Performance.',8,'N',0),('Cloning',13,NULL,15,'This will give the term \'masses\' a new meaning. Unlimited human ressources.',8,'N',0),('Improved Farming',13,NULL,16,'Why do we try to adapt to the plants. The plants have to adapt to us!',8,'N',0),('Theory of Advanced Energy sources',13,NULL,17,'It\'s time for a new energy. Let\'s see what the world can give us.',11,'T',0),('Cold Fusion provided Energycells',17,NULL,18,'Highly compressed Energy allows new ships.',11,'N',0),('Warpengine',17,NULL,19,'The faster we are the better we are',11,'N',0),('Theory of Nanotechnology',17,NULL,20,'We always get bigger and bigger. Why not go into detail?',16,'T',0),('Nano scanner',20,NULL,21,'Can you see nanobots? No. But they can see you!',16,'N',0),('Nanobot container',20,NULL,22,'One Nanobot could destroy hundreds of cells. But how many would billions of these destory? Nested in one Container they are a powerful weapon',16,'N',0),('Terraforming',20,NULL,23,'What about Nanobots changing our enviroment? Useful? I guess so.',16,'N',0),('Theory of Particel acceleration',20,NULL,24,'The traditional weapons are outdated. This will give us the power to build devastating weapons.',21,'T',0),('Plasma Heater',24,NULL,25,'Plasma weapons feature a very devastating impact. They are very slow though. So it\'s the ideal weapon for large and slow ships.',21,'N',0),('Hullbreaker Gate Device',24,NULL,26,'The \'Antitank grenade launcher\' for space combat. Hit\'s the ship and developes its power inside the ship.',21,'N',0),('Ionization Module',24,NULL,27,'Activates a Sphere around its victim which makes the enemy unmoveable for a while.',21,'N',0),('Theory of Human Mind',24,NULL,28,'Be a step beyond your enemies. Know what they think and plan your further steps. Furthermore it enables you to improve your colonies and make them more efficient.',28,'T',0),('Efficient Working',28,NULL,29,'Think like your workers and make their production enviroment more motivating because motivated workers work harder and better.',28,'N',0),('Neural Sensors',28,NULL,30,'Go through the streets and know what people think.',28,'N',0),('Persuation Rays',28,NULL,31,'People don\'t like you? People don\'t follow you? Arguing would be too exhausting so why not persuade them by pressing a button?.',28,'N',0),('Shock Dispenser',28,NULL,32,'Enables you to utilize current warptechnologies completely by reducing the biological shock for the travelers.',28,'N',0),('Theory of Galactic Ressources',28,NULL,33,'Space is more than metal and energy. Research the facilities of the Interstellar Ressources.',35,'T',1),('Secrets of Mopgas',33,NULL,34,'Highly energetic.',35,'N',0),('Secrets of Gortium',33,NULL,35,'Gortium. The ressource of the ancient planets.',35,'N',0),('Secrets of Erkunum',33,NULL,36,'The supraconducting ressource.',35,'N',0),('Secrets of Susebloom',33,NULL,37,'The most interesting ressource in Space but VERY rare. It\'s use cover drugs, medicaments etc.',35,'N',0),('Theory of Space Surveillance',33,NULL,38,'The one who knows what is going on is always a step further. Control through knowledge!',44,'T',0),('Mobile Emission Detector',38,NULL,39,'Very sensible ship detectors.',44,'N',0),('Deep Scanning',38,NULL,40,'This technology reveals almost every movement in space.',44,'N',0),('Long Range Jamming',38,NULL,41,'Hides you from enemy detection. If you can\'t be seen you can\'t be hit.',44,'N',0),('Theory of Synthetic Devices',38,NULL,42,'Manpower is too weak and not reliable. Androids are smarter, faster and stronger. Furthermore you could replace human organs through synthetic.',53,'T',0),('Cyberbiological Engineering',42,NULL,43,'Sex, 9 Months of waiting and lots of years of development. Build your fully equipped Android in one hour.',53,'N',0),('Symbiotic Shipsystems',42,NULL,44,'Computers can do maths. But do they really think? No. Sysmbiotic Shipsystems combine the tactical understanding of your captains with your systems and enable you to crush your enemies faster than they can react.',53,'N',0),('Virtual Entertainment',42,NULL,45,'Moral and motivation will never be a problem. This new generation of virtual entertainment connects to the human mind and displays what the user wants to see.',53,'N',0),('Theory of Artificial Intelligence',42,NULL,46,'The biological brain wastes most of its performance in doing nothing. Todays computers must be feed with human creativity and their failures! Thats a matter we can not tolerate! The only solution are devices controlled by an artificial intelligence.',64,'T',0),('AI Insects',46,NULL,47,'That enemy Admiral will never know that the fly in his soup knows him better than heself does.',64,'N',0),('Battleprocedure Algorithm',46,NULL,48,'Being able to construct autonom warships will not just make you more popular, you\'ll safe a lot expensive human resources, too!',64,'N',0),('Multiple Synchron Targeting System',46,NULL,49,'The idea is: Target dozends of enemy ships that none of your guns will never idle nor loose target at a time. From now our guns will always know where the enemy was, is and will be!',64,'N',0),('Rapid Laser Wave Switch',46,NULL,50,'Good old Laser Switch, your honor will be restored when their battleships will be cut up in thousends of pieces in a row!',64,'N',0),('Theory of total material processing',46,NULL,51,'These rare and very special galatic resources are still holding some of their secrets. I say NO MORE!',75,'T',1),('Gortium radiation insulation',51,NULL,52,'kommt noch',75,'N',0),('Erkunum Condesation',51,NULL,53,'Its last secret! Its strange behaviour in gaseous condition is solved!Gaining Erkunum will now be cheaper, easyer and faster!',75,'N',0),('Mopgas Binding',51,NULL,54,'Toxic planets hold more mopgas than we thought! We never believed that the hypercomplex and ultracritic mopgas molecule could be binded!',75,'N',0),('Artificial Susebloom planting',51,NULL,55,'Sadly Susebloom will  only grow on Eden Planets, but these complex planting machines will know be able to find, harvest and care for the flower more efficient.',75,'N',0),('Theory of Human Hardening',51,NULL,56,'The gift of the galactic resources makes it possible  that on human can easly match a Wardroid in close combat.',88,'T',0),('Susebloom packs',56,NULL,57,'A soldier cought in a battle will encounter terror and pain. Susebloom packs will reduce those experiences to a minimum,  give the soldier independence from sleep and food for days.',88,'N',0),('Advanced Pharmaceutics',56,NULL,58,'Today there is no desease that can\'t be cured, no wound that can\'t be healed. The only question is: can you pay?',88,'N',0),('Theory of Advanced Space Warfare',56,NULL,59,'What were those toys our men played with? Plasma rifles? Fusion bombs? pah! Lets get rid of those childish stuff and have a look at these freaking weapons!',101,'T',0),('Plasma Cluster',59,NULL,60,'Seen Hell? No? At least you can unleash hell!',101,'N',0),('Ionization Cluster Module',59,NULL,61,'A one billion tons ship crushed like a peanut? Well I\'d say, release just for a second a tiny wormhole in its very heart. The Implusionimpact is one of the most beautyfull wonders in the known galaxy.',101,'N',0),('Chaos Engines',59,NULL,62,'Coordinating the ways of chaos is quite difficult. Describing either. But the breath you just took could have launched the hurrican on the ocean.',101,'N',0),('Theory of Material Alteration',59,NULL,63,'What is it? Is not a organism, not a machine nor a nanobot but behaves like those?',116,'T',0),('Chameleon Fibres',63,NULL,64,'You wouldn\'t see your assassin even when you\'d hit him with your nose.',116,'N',0),('Polyurethane Pilot Suit',63,NULL,65,'A Pilot, made of flesh or steel wouldn\'t survive a acceleration from zero to lightspeed in less than a blink. Now they will!',116,'N',0),('The Autonom City',63,NULL,66,'And then I said: \"I\'d like to have a swimmingpool!\" After a few seconds I had a swimmingpool in my backyard! Fascinating, isn\'t it?',116,'N',0),('Theory of Enemy Domination',63,NULL,67,'If you want to feel like armageddon, we can make you feel so. I promise!',134,'T',0),('Graviation Field Generator',67,NULL,68,'Who said that artificial moon can not move? Who said that? Jesus, wheres that moon now?',134,'N',0),('Antimatter provided Energycells',67,NULL,69,'Ultraeffective compressed Energy! You won\'t find such power in a small black hole!',134,'N',0),('Giant Mass Controler',67,NULL,70,'Ravaging a planet is NOT nice!',134,'N',0),('Applied Gravitionik',67,NULL,71,'Brought the gravtionik to miniature! Living will be so much easier than it is today!',134,'N',0),('Theory of Light Diversion',67,NULL,72,'Light! Another thing that\'d support us greatly I guess.',151,'T',0),('Optical Cloaking Device',72,NULL,73,'That device mount on a big big ship will hide your fleets from enemy eyes!',151,'N',0),('Cloaking',72,NULL,74,'Being the invisble man, your soldiers will experience the feeling of being not there! Well at least of a couple of hours.',151,'N',0);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE tech ENABLE KEYS */;
+
+--
+-- Table structure for table `ticker`
+--
+
+DROP TABLE IF EXISTS ticker;
+CREATE TABLE ticker (
+  uid int(11) default NULL,
+  tid int(11) NOT NULL auto_increment,
+  type char(1) default NULL,
+  text varchar(255) default NULL,
+  time timestamp NOT NULL,
+  PRIMARY KEY  (tid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ticker`
+--
+
+
+/*!40000 ALTER TABLE ticker DISABLE KEYS */;
+LOCK TABLES ticker WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE ticker ENABLE KEYS */;
+
+--
+-- Table structure for table `timeinfo`
+--
+
+DROP TABLE IF EXISTS timeinfo;
+CREATE TABLE timeinfo (
+  week int(11) NOT NULL default '1',
+  PRIMARY KEY  (week)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `timeinfo`
+--
+
+
+/*!40000 ALTER TABLE timeinfo DISABLE KEYS */;
+LOCK TABLES timeinfo WRITE;
+INSERT INTO timeinfo VALUES (1);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE timeinfo ENABLE KEYS */;
+
+--
+-- Table structure for table `tmp_prod_factors`
+--
+
+DROP TABLE IF EXISTS tmp_prod_factors;
+CREATE TABLE tmp_prod_factors (
+  pid int(11) NOT NULL default '0',
+  metal int(11) NOT NULL default '1',
+  energy int(11) NOT NULL default '1',
+  mopgas int(11) NOT NULL default '1',
+  erkunum int(11) NOT NULL default '1',
+  gortium int(11) NOT NULL default '1',
+  susebloom int(11) NOT NULL default '1',
+  KEY pid (pid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tmp_prod_factors`
+--
+
+
+/*!40000 ALTER TABLE tmp_prod_factors DISABLE KEYS */;
+LOCK TABLES tmp_prod_factors WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE tmp_prod_factors ENABLE KEYS */;
+
+--
+-- Table structure for table `traderules`
+--
+
+DROP TABLE IF EXISTS traderules;
+CREATE TABLE traderules (
+  rate int(11) default NULL,
+  sid int(11) default NULL,
+  rid int(11) NOT NULL auto_increment,
+  friend_alliance decimal(11,2) default '150.00',
+  neutral_alliance decimal(11,2) default '200.00',
+  enemy_alliance decimal(11,2) default '400.00',
+  ressource char(1) default NULL,
+  PRIMARY KEY  (rid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `traderules`
+--
+
+
+/*!40000 ALTER TABLE traderules DISABLE KEYS */;
+LOCK TABLES traderules WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE traderules ENABLE KEYS */;
+
+--
+-- Table structure for table `tradestations`
+--
+
+DROP TABLE IF EXISTS tradestations;
+CREATE TABLE tradestations (
+  metal int(11) default NULL,
+  energy int(11) default NULL,
+  gortium int(11) default NULL,
+  erkunum int(11) default NULL,
+  mopgas int(11) default NULL,
+  susebloom int(11) default NULL,
+  uid int(11) NOT NULL default '0',
+  pid int(11) default NULL,
+  sid int(11) NOT NULL auto_increment,
+  fail_chance int(11) NOT NULL default '1',
+  global_friend_alliance int(11) NOT NULL default '150',
+  global_neutral_alliance int(11) NOT NULL default '200',
+  global_enemy_alliance int(11) NOT NULL default '400',
+  level int(1) default '1',
+  PRIMARY KEY  (sid),
+  UNIQUE KEY uid (uid)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tradestations`
+--
+
+
+/*!40000 ALTER TABLE tradestations DISABLE KEYS */;
+LOCK TABLES tradestations WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE tradestations ENABLE KEYS */;
+
+--
+-- Table structure for table `unit_sounds`
+--
+
+DROP TABLE IF EXISTS unit_sounds;
+CREATE TABLE unit_sounds (
+  prod_id int(11) NOT NULL default '0',
+  sound_file varchar(255) default NULL,
+  type varchar(20) default 'report'
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `unit_sounds`
+--
+
+
+/*!40000 ALTER TABLE unit_sounds DISABLE KEYS */;
+LOCK TABLES unit_sounds WRITE;
+INSERT INTO unit_sounds VALUES (2,'Scout_report.mp3','report'),(3,'Probe_report.mp3','report'),(6,'Interceptor_report.mp3','report'),(9,'Transporters_report.mp3','report'),(12,'Colony_ship_report.mp3','report'),(14,'B-5056_Bomber_report.mp3','report'),(16,'Peacekeeper_Corvette_report.mp3','report'),(18,'Draconis_Destroyer_report.mp3','report'),(24,'N-2103_Bomber_report.mp3','report'),(28,'Hijacker_report.mp3','report'),(29,'Freezer_report.mp3','report'),(35,'Dreamcatcher_Frigatte_report.mp3','report'),(37,'Beholder_report.mp3','report'),(39,'Octopus_Corvette_report.mp3','report'),(45,'Hydra_report.mp3','report'),(48,'Behemoth_report.mp3','report'),(52,'Wrath_report.mp3','report'),(62,'Orbital_Colony_Center_Unit_report.mp3','report'),(64,'Gunship_report.mp3','report'),(2,'Scout_confirm.mp3','confirm'),(3,'Probe_confirm.mp3','confirm'),(6,'Interceptor_confirm.mp3','confirm'),(9,'Transporters_confirm.mp3','confirm'),(12,'Colony_ship_confirm.mp3','confirm'),(14,'B-5056_Bomber_confirm.mp3','confirm'),(16,'Peacekeeper_Corvette_confirm.mp3','confirm'),(18,'Draconis_Destroyer_confirm.mp3','confirm'),(24,'N-2103_Bomber_confirm.mp3','confirm'),(28,'Hijacker_confirm.mp3','confirm'),(29,'Freezer_confirm.mp3','confirm'),(35,'Dreamcatcher_Frigatte_confirm.mp3','confirm'),(37,'Beholder_confirm.mp3','confirm'),(39,'Octopus_Corvette_confirm.mp3','confirm'),(45,'Hydra_confirm.mp3','confirm'),(48,'Behemoth_confirm.mp3','confirm'),(52,'Wrath_confirm.mp3','confirm'),(62,'Orbital_Colony_Center_Unit_confirm.mp3','confirm'),(64,'Gunship_confirm.mp3','confirm');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE unit_sounds ENABLE KEYS */;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+  name varchar(255) default NULL,
+  password varchar(255) default NULL,
+  id int(11) NOT NULL auto_increment,
+  email varchar(255) default NULL,
+  imperium varchar(255) default NULL,
+  active tinyint(1) default '0',
+  last_login timestamp NOT NULL,
+  homeworld int(11) default NULL,
+  alliance int(11) NOT NULL default '0',
+  score int(11) NOT NULL default '0',
+  skin int(11) default NULL,
+  moz int(1) NOT NULL default '0',
+  admin int(1) default NULL,
+  apw varchar(255) default NULL,
+  PRIMARY KEY  (id)
+)  DEFAULT CHARSET=latin1 PACK_KEYS=1;
+
+--
+-- Dumping data for table `users`
+--
+
+
+/*!40000 ALTER TABLE users DISABLE KEYS */;
+LOCK TABLES users WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE users ENABLE KEYS */;
+
+--
+-- Table structure for table `version`
+--
+
+DROP TABLE IF EXISTS version;
+CREATE TABLE version (
+  version int(11) NOT NULL default '0',
+  dummy_key int(11) NOT NULL default '0',
+  PRIMARY KEY  (dummy_key)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `version`
+--
+
+
+/*!40000 ALTER TABLE version DISABLE KEYS */;
+LOCK TABLES version WRITE;
+INSERT INTO version VALUES (54,1);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE version ENABLE KEYS */;
+
+--
+-- Table structure for table `vornamen`
+--
+
+DROP TABLE IF EXISTS vornamen;
+CREATE TABLE vornamen (
+  name varchar(255) default NULL,
+  id int(11) NOT NULL auto_increment,
+  gender char(1) default NULL,
+  PRIMARY KEY  (id),
+  UNIQUE KEY name (name)
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vornamen`
+--
+
+
+/*!40000 ALTER TABLE vornamen DISABLE KEYS */;
+LOCK TABLES vornamen WRITE;
+INSERT INTO vornamen VALUES ('Hans',1,'m'),('John',2,'m'),('Joe',3,'m'),('James',4,'m'),('Peter',5,'m'),('Karl-Heinz',6,'m'),('Chen-Yu',7,'m'),('Oleg',8,'m'),('Alex',9,'m'),('Nelson',10,'m'),('Bart',11,'m'),('Tobias',12,'m'),('Hans-Ruediger Andreas Peter',13,'m'),('Erik',14,'m'),('Daniel',15,'m'),('Michael',16,'m'),('Janne',17,'m'),('Marcus',18,'m'),('Andre',19,'m'),('Susanne',20,'w'),('Judith',21,'w'),('Anette',22,'w'),('Jeanette',23,'w'),('Sandra',24,'w'),('Joe-Ann',25,'w'),('Maria',26,'w'),('Mary',27,'w'),('Mailin',28,'w'),('Sue',29,'w'),('Alexandra',30,'w'),('Charlotte',31,'w'),('Birgit',32,'w'),('Pamela',33,'w'),('Julia',34,'w'),('Juliette',35,'w'),('Nicole',36,'w'),('William',37,'m'),('Victor',38,'m'),('Juli',39,'w'),('Robert',40,'m'),('Charles',41,'m'),('Kelly',42,'w'),('Dave',43,'m'),('Brad',44,'m'),('Brian',45,'m'),('Clark',46,'m'),('Jesse',47,'w'),('Sabrina',48,'w'),('Ian',49,'m'),('Paul',50,'m'),('Matthew',51,'m'),('Thomas',52,'m'),('Linda',53,'w'),('Aaron',54,'m'),('Phillip',55,'m'),('Drew',56,'w'),('Chris',57,'m'),('Christian',58,'m'),('Mark',59,'m'),('Helen',60,'w'),('Ti',61,'w'),('Tim',62,'m'),('Ilknur',63,'w'),('Rick',64,'m'),('Richard',65,'m'),('Diana',66,'w'),('Scott',67,'m'),('Shawn',68,'m'),('Claudia',69,'w'),('Hillary',70,'w'),('Laura',71,'w'),('Jason',72,'m'),('Max',73,'m'),('Kim',74,'w'),('Kevin',75,'m'),('Lou',76,'w'),('Kiamalise',77,'w'),('Naomi',78,'w'),('Nicoletta',79,'w'),('Sophia',80,'w'),('Sonja',81,'w'),('Mira',82,'w'),('Mia',83,'w'),('Vladimir',84,'m'),('Andrej',85,'m'),('Mej-Yu',86,'w'),('Victoria',87,'w'),('Brigitte',88,'w');
+UNLOCK TABLES;
+/*!40000 ALTER TABLE vornamen ENABLE KEYS */;
+
+--
+-- Table structure for table `vote`
+--
+
+DROP TABLE IF EXISTS vote;
+CREATE TABLE vote (
+  end timestamp NOT NULL,
+  aid int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `vote`
+--
+
+
+/*!40000 ALTER TABLE vote DISABLE KEYS */;
+LOCK TABLES vote WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE vote ENABLE KEYS */;
+
+--
+-- Table structure for table `votes`
+--
+
+DROP TABLE IF EXISTS votes;
+CREATE TABLE votes (
+  uid int(11) default NULL,
+  vote int(11) default NULL,
+  aid int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `votes`
+--
+
+
+/*!40000 ALTER TABLE votes DISABLE KEYS */;
+LOCK TABLES votes WRITE;
+UNLOCK TABLES;
+/*!40000 ALTER TABLE votes ENABLE KEYS */;
+
+--
+-- Table structure for table `warp`
+--
+
+DROP TABLE IF EXISTS warp;
+CREATE TABLE warp (
+  `range` int(11) default NULL,
+  tid int(11) default NULL
+)  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `warp`
+--
+
+
+/*!40000 ALTER TABLE warp DISABLE KEYS */;
+LOCK TABLES warp WRITE;
+INSERT INTO warp VALUES (300,12),(400,19),(600,62),(500,32);
+UNLOCK TABLES;
+/*!40000 ALTER TABLE warp ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+

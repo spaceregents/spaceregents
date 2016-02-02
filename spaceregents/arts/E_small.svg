@@ -1,0 +1,10 @@
+<svg:path id="%ID" style="fill:rgb(255,255,255)" d="M 3 0 L 3 1 L 2 5 C -0.6943 6.096 2.318 8.6 3 10 L 0 10 L 0 0 L 3 0 z"/>
+<svg:path id="%ID" style="fill:rgb(19,26,22)" d="M 4 0 L 4 1 L 3 1 L 3 0 L 4 0 z"/>
+<svg:path id="%ID" style="fill:rgb(112,172,108)" d="M 7 0 C 6.944 1.592 4.947 0.8102 4 1 L 4 0 L 7 0 z"/>
+<svg:path id="%ID" style="fill:rgb(233,227,229)" d="M 10 0 L 10 3 C 8.705 1.674 3.577 1.19 6 4 L 5 4 C 3.408 3.944 4.19 1.947 4 1 C 4.947 0.8102 6.944 1.592 7 0 L 10 0 z"/>
+<svg:path id="%ID" style="fill:rgb(100,135,110)" d="M 3 1 L 4 1 C 4.19 1.947 3.408 3.944 5 4 C 6.085 5.357 6.085 6.643 5 8 C 2.884 8.629 2.859 6.176 2 5 L 3 1 z"/>
+<svg:path id="%ID" style="fill:rgb(109,183,95)" d="M 10 3 L 10 7 L 8 8 L 6 4 C 3.577 1.19 8.705 1.674 10 3 z"/>
+<svg:path id="%ID" style="fill:rgb(61,137,32)" d="M 6 4 L 8 8 L 7 9 L 5 8 C 6.085 6.643 6.085 5.357 5 4 L 6 4 z"/>
+<svg:path id="%ID" style="fill:rgb(27,47,31)" d="M 2 5 C 2.859 6.176 2.884 8.629 5 8 L 4 10 L 3 10 C 2.318 8.6 -0.6943 6.096 2 5 z"/>
+<svg:path id="%ID" style="fill:rgb(255,255,255)" d="M 10 7 L 10 10 L 7 10 L 7 9 L 8 8 L 10 7 z"/>
+<svg:path id="%ID" style="fill:rgb(135,175,157)" d="M 7 9 L 7 10 L 4 10 L 5 8 L 7 9 z"/>

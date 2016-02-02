@@ -1,0 +1,19 @@
+polygon[class="red"]
+{
+	color: #FF0000;
+}
+
+polygon[class="white"]
+{
+	color: #FFFFFF;
+}
+
+polygon[class="yellow"]
+{
+	color: #FF00FF;
+}
+
+polygon[class="blue"]
+{
+	color: #0000FF;
+}

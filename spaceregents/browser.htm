@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>
+Spaceregents.de Browser Statement
+</title>
+</head>
+<body>
+<h3>
+Overview
+</h3>
+Spaceregents is web-based space-strategy. Due to this fact we depend on a client-software, the web-browser. No problem so far but we use a very new standard - <a href="http://www.w3c.org/Graphics/SVG/">Scalable Vector Graphics</A>. Every Browser should be standards compilant but we all know what the reality looks like. We worked and still work hard that it runs in every enviroment but the browsers are simply too different to make it viewable for all people. Here i want to show you with what problems we have to deal, which browser is supported and which not.<p>
+<h4>
+Microsoft Internet Explorer
+</h4>
+Meanwhile the MSIE has become the most used web-browser in the internet community (Well, mostly because it is fully integrated with Windows but that's another story). The MSIE is very tolerant and doesn't need a well-built up site to display web-pages properly. On the one hand this makes it easy for non-experienced or simply lazy web-designers to built up a page. But on the other hand there's the danger that this will become the normality.<br>
+During the development of Spaceregents it came out that the MSIE is the ONLY browser which is able to display all the things we wanted to have. So the MSIE is the recommended browser for spaceregents.<p>
+<h4>
+Netscape 4.x
+</h4>
+Netscape once was the absolute number one in the browser culture. It supported everything the user needed. But with the coming out of the MSIE it loosed more and more user because the MSIE is simply the better product. Nevertheless there are still many people who use and love it although the Communicator is not fully standards compatible. Netscape should fully support Spaceregents.
+<h4>
+Opera
+</h4>
+The amount of Opera user increase heavily since it is "Ad-Ware". This is because Opera has made a very fast and small browser which supports almost everything the user needs. But unfortunatly SVG is not supported. The Rendering of the SVG - Graphics is done by the Adobe Plugin but the DOM bindings for SVG are NOT implemented. Due to the fact that we work a lot with these functions Opera is not recommended. Furthermore it doesn't support our ticker. Opera is a very good browser (i use for myself) but for Spaceregents it's simply not usable. Go to their newsgroup and explain them why you want to have SVG in Opera.
+<p>
+<h4>
+Netscape 6/Mozilla
+</h4>
+Netscape 6 has it's origin in the open-source project mozilla. They try to implement every standard but the first version of Netscape 6 was simply too unstable. Netscape has released a new version of it 6.x series: Version 6.2. This version is quite stable. Give it a chance because it's a very good browser and supports everything Spaceregents uses. You have to use the Adobe SVG Viewer if you want to use it.<br>
+Netscape 6 has it's roots in the Mozilla project. It is perhaps even more advanced than the MSIE and also the only browser project which is working on internal SVG support, so without a plugin. It's still under heavy development but so far Mozilla supports our SVG graphics and the ticker is also fully functional. Furthermore mozilla has additional CSS bindings which make the Butoons look very nice. If you are interested in the inline SVG support of mozilla checkout a 0.9.7+ build with SVG support from <a href="http://www.mozilla.org/">Mozilla.org</a>.
+<h4>
+Amaya
+</h4>
+Most people will now ask: "What's Amaya?!". Amaya is the Browser/Editor from w3 Consortium which is responsible for the different webstandards. Due to this fact it supports every standard which is out there. Unfortunatly it doesn't support cookies and so you can't use it for Spaceregents.<p>
+<h4>
+OS dependend notes
+</h4>
+<h5>
+UNIX and its derivates
+</h5>
+Mozilla will be the only choice you have because it supports SVG.<br>
+The croczilla SVG patch is now in the CVS. Simply checkout a fresh mozilla and compile it with --enable-svg. Furthermore there is 
+the possibility to use the Adobe SVG Viewer for linux and solaris.<br>
+Please note that you'll need a VERY old build for that. The Plugin from Adobe is only working with the 0.9.1 milestone.
+<h5>
+Mac
+</h5>
+Spaceregents has not beend tested on Mac-Browsers. There are some remarks on the Adobe page, that IE for Mac doesn't support Javascript. If so forget about IE on Mac:). There's also a SVG enabled mozilla version out there. See the links for details.<p>
+<h4>
+Other plugins
+</h4>
+There are many Java based svg viewers out there. But Java is too slow and the viewers can't handle our SVG's. So forget about them.:))
+<p>
+<h3>
+Links
+</h3>
+<a href="http://www.adobe.com/svg/">Adobe</a><br>
+<a href="http://www.croczilla.com/svg">Mozilla's SVG project</a><br>
+</body>
+</html>

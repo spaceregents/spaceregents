@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function reloadIfNeed()
+      {
+	if (document.cookie)
+	{
+	  document.cookie.indexOf("=") + 1;
+	  reload=document.cookie.substring(document.cookie.indexOf("=") + 1,document.cookie.indexOf(";"));
+	  if (reload==1)
+	  {
+	    parent.buddies.location.reload();
+	    year=1000*60*60*24*365;
+	    now=new Date();
+	    expire=new Date(now.getTime()+year);
+	    document.cookie = "reload=0; expires="+expire.toGMTString()+";";
+	  }
+	  window.setTimeout("reloadIfNeed()",10000);
+	}
+      }
+
+      window.setTimeout("reloadIfNeed()",10000);
+    </script>
+  <link rel=stylesheet type="text/css" href="inc/srbuddy.css">
+  </head>
+  <body>
+    <table width="280" align="center">
+    <tr>
+     <td colspan="2" class="top" align="center">Buddylist</td>
+    </tr>
+      <tr align="center">
+	<td class="top" width="140">
+          <a href="buddy.php" target="buddies" class="menu">Overview</a>
+	</td>
+	<td class="top" width="140">
+	  <a href="buddy.php?act=invitations" target="buddies" class="menu">Invitations</a>
+	</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+body {scrollbar-face-color: #4a4787;scrollbar-shadow-color: #2F1F40;scrollbar-highlight-color: #FFFFFF;
+      scrollbar-3dlight-color: #6F4FD0;scrollbar-darkshadow-color: #000000;scrollbar-track-color: #302859;
+      scrollbar-arrow-color: #8E8FB1;background-color:black;color:white;}
+input {background-color:#4a4787;border-color:#FFFFFF;color:#FFFFFF; -moz-border-radius:10px;}
+
+table.list {border-color:black;border:5px;width:280px;}
+td.list    {background-color:#283259;color:white;font-size:8pt;font-family:verdana;text-decoration:none;}
+td.top     {background-color:#4a4798;color:white;font-size:10pt;font-family:verdana;text-decoration:none;}
+
+a.menu       {color:7da7a9;font-size:12pt;font-family:verdana;text-decoration:none;}
+a.menu:hover {color:white;text-decoration:underline;}
+a.menu:active{color:grey;text-decoration:underline;}
+
+a.list       {color:#f3f2ff;font-size:10pt;font-family:verdana;text-decoration:none;}
+a.list:hover {color:white;}
