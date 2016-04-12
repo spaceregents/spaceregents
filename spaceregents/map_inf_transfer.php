@@ -195,8 +195,8 @@ switch ($_GET["act"]) {
 $content=ob_get_contents();
 ob_end_clean();
 
-if ($_GET["debug"]==1)
+#if ($_GET["debug"]==1)
 	print $content;
-else
-	print gzcompress($content);
+#else
+#	print gzcompress($content);
 ?>

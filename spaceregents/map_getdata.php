@@ -757,10 +757,10 @@ switch ($_GET["act"])
 $content=ob_get_contents();
 ob_end_clean();
 
-if ($_GET["debug"])
+#if ($_GET["debug"])
   print $content;
-else
-  print gzcompress($content);
+#else
+#  print gzcompress($content);
 // mop: wer is lasse? :S:S:S:S:S:S:S
 // 0345 - 6140735 // Lasses telenr.
 //  select sum(count) as shipcount from fleet join production using(prod_id) where fid=28 group by typ;

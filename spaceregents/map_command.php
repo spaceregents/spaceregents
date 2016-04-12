@@ -94,16 +94,16 @@ function move_fleet($mission)
   $route    = move_to($fleet->sid,$destination_system,$max_warp);
 
   if (is_array($route))
-  {    
+  {
     $fleet_mode = "defensive";
-    
+
     // gucken ob der zielplanet ein feindlicher ist
     if ($destination_planet != 0 && $destination_planet_uid != 0)
     {
       if (get_uids_relation($uid, $destination_planet_uid) == "enemy")
         $fleet_mode = "aggressive";
     }
-    
+
     set_mission($fid, $mission, $destination_system, $destination_planet);    
     $its_mission = get_mission_by_mission_id($mission, $fleet_mode);    
     set_route($route, $fid);
@@ -471,8 +471,8 @@ switch ($_GET["act"])
 $content=ob_get_contents();
 ob_end_clean();
 
-if ($_GET["debug"] == 1)
+#if ($_GET["debug"] == 1)
   print $content;
-else
-  print gzcompress($content);
+#else
+#  print gzcompress($content);
 ?>

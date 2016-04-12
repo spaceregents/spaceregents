@@ -43,5 +43,6 @@ switch ($act)
 $content=ob_get_contents();
 ob_end_clean();
 
-print gzcompress($content);
+print $content;
+#print gzcompress($content);
 ?>

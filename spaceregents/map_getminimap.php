@@ -365,8 +365,8 @@ echo($SVG_output);
 $content=ob_get_contents();
 ob_end_clean();
 
-if (!$_GET["debug"])
-  print gzcompress($content);
-else
+#if (!$_GET["debug"])
+#  print gzcompress($content);
+#else
   print $content;
 ?>
