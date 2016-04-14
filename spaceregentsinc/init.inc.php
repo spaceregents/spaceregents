@@ -1,4 +1,11 @@
 <?
+foreach ($_POST as $key => $value) {
+    $$key = $value;
+}
+foreach ($_GET as $key => $value) {
+    $$key = $value;
+}
+
 include "../spaceregentsconf/config.inc.php";
 include "../spaceregentsinc/func.inc.php";
 include "../spaceregentsinc/design.inc.php";
@@ -14,7 +21,7 @@ connect();
 /* SESSION HANDLING */
 
 $auth_conf=array("ses_name"=>"SR-GAMESES","expire"=>"3600","fid"=>"0","cookies"=>true);
-// mop: typ 3 für admin session
+// mop: typ 3 fï¿½r admin session
 $ses_conf=array("type"=>"0");
 $auth=new anon_auth($db,$auth_conf,$ses_conf);
 
