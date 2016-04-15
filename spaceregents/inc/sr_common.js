@@ -52,7 +52,7 @@ function enable_screen(its_type)
     }
     else
     {
-      send_message(fSvgDoc.getElementById("inputText").getFirstChild());
+      send_message(fSvgDoc.getElementById("inputText").firstChild);
       removeObject(fSvgDoc.getElementById("inputText"));
       removeObject(fSvgDoc.getElementById("disabler"));
     }
@@ -541,7 +541,7 @@ function update_resources()
       resource_type     = to_update_element.getAttribute("resource");
 
       // Resourcen Wert ermitteln
-      resource_value    = resource_container.getElementsByTagName(resource_type).item(0).getFirstChild().getData();
+      resource_value    = resource_container.getElementsByTagName(resource_type).item(0).firstChild.getData();
 
       // -1...ziemlich sinnlos..aber der spass ist es wert
       resource_value    = Number(resource_value) - 1;
@@ -551,7 +551,7 @@ function update_resources()
       obj_to_update = pSvgDoc.getElementById(object_id);
 
       // neuen Wert schreiben
-      obj_to_update.getFirstChild().setData(resource_value);
+      obj_to_update.firstChild.setData(resource_value);
       obj_to_update.setAttribute("original_value",resource_value);
 
       //update request eintrag loeschen

@@ -7,7 +7,7 @@ function init(evt)
 
 function rphighlight(evt)
 {
- dieID = evt.getTarget().getParentNode().getFirstChild().getNextSibling().getId();dieID = dieID.slice(2);
+ dieID = evt.getTarget().getParentNode().firstChild.getNextSibling().getId();dieID = dieID.slice(2);
  if (dieID != oldPlanetBar)
  {
   if (oldPlanetBar != 0)
@@ -16,7 +16,7 @@ function rphighlight(evt)
 //   oldObj.getStyle().setProperty('fill','#3821a4');
    oldObj.setAttribute('fill','url(#plbuttongrad1)');
   }
-  obj = evt.getTarget().getParentNode().getFirstChild().getNextSibling();
+  obj = evt.getTarget().getParentNode().firstChild.getNextSibling();
 //  obj.getStyle().setProperty('fill','#3821ff')
   obj.setAttribute('fill','url(#plbuttongrad2)');
   oldPlanetBar = dieID;
@@ -27,13 +27,13 @@ function popup(dieID, x , y, i)
 {
 fenster=svgdoc.getElementById('targetcross');
 fenster_name=svgdoc.getElementById('fenster_name');
-fenster_name=fenster_name.getFirstChild();
+fenster_name=fenster_name.firstChild;
 fenster_name.setData(planetsname[dieID]);
 fenster_owner=svgdoc.getElementById('fenster_owner');
-fenster_owner=fenster_owner.getFirstChild();
+fenster_owner=fenster_owner.firstChild;
 fenster_owner.setData(planetsowner[dieID]);
 fenster_alliance=svgdoc.getElementById('fenster_alliance');
-fenster_alliance=fenster_alliance.getFirstChild();
+fenster_alliance=fenster_alliance.firstChild;
 fenster_alliance.setData(planetsalliance[dieID]);
 fenster=svgdoc.getElementById('targetcross');
 new_pos=fenster.setAttribute("transform","translate("+(x)+" "+(y)+")");
