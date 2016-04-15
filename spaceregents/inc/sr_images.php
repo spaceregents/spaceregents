@@ -21,5 +21,6 @@ while (list($pic,$prod_id,$name, $sv_special, $pr_special)=mysql_fetch_row($sth)
 $content=ob_get_contents();
 ob_end_clean();
 
-print gzcompress($content);
+print $content;
+#print gzcompress($content);
 ?>

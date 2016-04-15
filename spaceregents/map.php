@@ -82,7 +82,7 @@ function write_javascript($map_info)
   echo("var global_map_anims = ".($map_info->has_map_anims() ? "true" : "false").";\n");
   echo("minimap=new SR_CLASS_MINIMAP(".MINIMAP_X.",".MINIMAP_Y.",".MINIMAP_SIZE.");\n");
   echo("var masta = new SR_CLASS_MASTA(".($map_info->has_map_anims() ? "true" : "false").",".($map_info->has_map_autoupdate() ? "true" : "false").",\"100\",minimap);\n");
-  echo("masta.warprange = ".$map_info->get_warprange().";");
+  echo("masta.warprange = ".(int) $map_info->get_warprange().";");
   echo("]]>\n");
   echo("</script>\n");
 }
@@ -113,14 +113,14 @@ function write_panel_svg_content($map_info)
 
   if ($my_map_size["width"] == 800 && $my_map_size["height"] == 600)
   {
-    $x_transform = $my_map_size["width"] - 800 - 2; // -10 sind die ränder
+    $x_transform = $my_map_size["width"] - 800 - 2; // -10 sind die rï¿½nder
     $y_transform = $my_map_size["height"] - 600; // -55 ist die statusleiste
   }
   else
   {
-    //$x_transform = $my_map_size["width"] + 150; // -10 sind die ränder
+    //$x_transform = $my_map_size["width"] + 150; // -10 sind die rï¿½nder
     //$y_transform = $my_map_size["height"] - 600 + 17 - 75; // -55 ist die statusleiste
-    $x_transform = $my_map_size["width"] - 800 - 10; // -10 sind die ränder
+    $x_transform = $my_map_size["width"] - 800 - 10; // -10 sind die rï¿½nder
     $y_transform = $my_map_size["height"] - 600 + 17 - 75; // -55 ist die statusleiste
   }
 
@@ -153,7 +153,7 @@ function write_panel_svg_content($map_info)
   echo("  </g>\n");
   echo("  <g id=\"status_panel_text\">\n");
   echo("    <use xlink:href=\"#status_text_rect\"/>\n");
-  // mop: vertical align noch nicht unterstützt :@
+  // mop: vertical align noch nicht unterstï¿½tzt :@
   echo("    <flow style=\"text-align :center\">\n");
   echo("      <flowRegion>\n");
   echo("        <region xlink:href=\"#status_text_rect\"/>\n");
@@ -195,7 +195,7 @@ function write_panel_svg_content($map_info)
    * hier werden mal die resourcen wie folgt hingeschrieben:
    * <resource_name timestamp="hh mm">anzahl + 1</resource_name>
    *
-   * es können noch temporär:
+   * es kï¿½nnen noch temporï¿½r:
    *
    * <obj_to_update resource="resource" obj_id="object_id"/>stehen
    * da getURL ansynchron ist.
@@ -229,7 +229,20 @@ define(MINIMAP_X,$my_map_size["width"]-200);
 define(MINIMAP_Y,30);
 
 write_css();
-open_svg("id=\"fSvg\" onload=\"initFather(evt);\" onkeydown=\"key_functions(evt);\" xmlns=\"http://www.w3.org/2000/svg\" externalResourcesRequired=\"true\" xmlns:a=\"http://www.adobe.com/svg10-extensions\" a:timeline=\"independent\" onmousedown=\"evt.preventDefault()\"  onmouseup=\"evt.preventDefault()\" zoomAndPan=\"disable\"");
+open_svg(
+    'version="1.1" ' .
+    'xmlns:xlink="http://www.w3.org/1999/xlink" ' .
+    'id="fSvg" ' .
+    'onload="initFather(evt);" ' .
+    'onkeydown="key_functions(evt);" ' .
+    'xmlns="http://www.w3.org/2000/svg" ' .
+    'externalResourcesRequired="true" ' .
+    'xmlns:a="http://www.adobe.com/svg10-extensions" ' .
+    'a:timeline="independent" ' .
+    'onmousedown="evt.preventDefault()" ' .
+    'onmouseup="evt.preventDefault()" ' .
+    'zoomAndPan="disable"'
+);
 echo("<rect id=\"hintergrundfarbe\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"#001233\"/>\n");
 write_defs();
 write_javascript($map_info);

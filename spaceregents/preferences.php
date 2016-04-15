@@ -219,7 +219,7 @@ function change_map_size()
 {
   global $uid;
   global $map_size;
-  
+
   $sth = mysql_query("UPDATE options SET map_size = ".$map_size." WHERE uid = ".$uid);
   
   if (!$sth)
